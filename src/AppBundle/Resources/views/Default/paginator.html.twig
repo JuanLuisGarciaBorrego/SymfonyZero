@@ -1,0 +1,26 @@
+{% extends '::base.html.twig' %}
+{%block body%}
+{# total items count #}
+<div class="count">
+    Total items:{{ pagination.getTotalItemCount }}
+</div>
+<table border='1'>
+<tr>
+{# sorting of properties based on query components #}
+    <th>{{ knp_pagination_sortable(pagination, 'Username', 'a.username') }}</th>
+    {#<th{% if pagination.isSorted('a.Title') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Title', 'a.title') }}</th>
+    <th>{{ knp_pagination_sortable(pagination, 'Release', ['a.date', 'a.time']) }}</th>#}
+</tr>
+
+{# table body #}
+{% for item in pagination %}
+<tr {% if loop.index is odd %}class="color"{% endif %}>
+    <td>{{ item.username }}</td>
+</tr>
+{% endfor %}
+</table>
+{# display navigation #}
+<div class="navigation">
+    {{ knp_pagination_render(pagination) }}
+</div>
+{%endblock%}

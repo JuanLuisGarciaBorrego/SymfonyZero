@@ -1,0 +1,10 @@
+{%extends '::base.html.twig'%}
+{%block body%}
+    <textarea class="tinymce"></textarea>
+{%endblock%}
+
+{% block javascripts %}
+    {{parent()}}    
+    {{ tinymce_init() }}
+    
+{% endblock %}

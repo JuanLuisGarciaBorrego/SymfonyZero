@@ -1,0 +1,22 @@
+<div style='float:left;width:80%'>
+Symfony Zero bundle's selection, click on the links to see the demo:
+<ul>    
+    <li><a href="https://github.com/FriendsOfSymfony/FOSUserBundle">FOSUser Bundle: </a>. 
+        Click here to  
+    {%if(app.user)%}
+        <a href="{{path('fos_user_security_logout')}}">logout</a>
+    {%else%}
+        <a href="{{path('fos_user_security_login')}}">login</a>
+    {%endif%}
+    </li>
+    <li><a href="{{path('admin')}}">EasyAdmin Bundle:</a> see how to easily Admin your entities</li>
+    <li><a href="{{path('paginator_sample')}}">Paginator Bundle:</a>  A simple way to paginate your records, arrays, etc.</li>
+    <li><a href='http://knpbundles.com/whiteoctober/BreadcrumbsBundle'>Breadcrumbs Bundle</a> enabled: </a>You can see it in action in the previous link (Paginator Bundle)</li>
+    <li><a href="{{path('tmce_sample')}}">stfalcon/TinymceBundle: </a>WYSIWYG Editor for your forms</li>
+    <li><a href="https://github.com/raulfraile/LadybugBundle">LadyBugBundle: </a>An improved PHP Dumper</li>
+    <li><a href="https://github.com/xsolve-pl/xsolve-cookie-acknowledgement-bundle">Cookies Acknowledgement Bundle: </a>An improved PHP Dumper</a>  This bundle provides information about an cookies usage, which is forced by European Union by so-called EU cookie law.</li>
+    
+    
+</ul>
+</div>
+<div style='clear:both'></div>
