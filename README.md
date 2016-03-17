@@ -40,13 +40,19 @@ POSIX needs to be enabled (only on *nix)
  
  If you change the Symfony version, these requirements could change. In this case you must visit the [oficial site] to check them.
 
- (Setup)
+# Setup
  
- (Features)
+ Work in progress
  
- (Config)
+# Features
  
- # Improvements and contact
+ Work in progress
+ 
+# Config
+ 
+ Work in progress
+ 
+# Improvements and contact
  
 This is an open source project to contribute with the community and we are delighted to be helped by you, so if you have an idea to improve SymfonyZero or you find a bug, please create an issue and explain us clearly and with details your idea or the bug you have found.
 
