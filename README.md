@@ -40,14 +40,24 @@ POSIX needs to be enabled (only on *nix)
  
  If you change the Symfony version, these requirements could change. In this case you must visit the [oficial site] to check them.
 
- # Setup
+ (Setup)
  
- # Features
+ (Features)
  
- # Config
+ (Config)
  
  # Improvements and contact
+ 
+This is an open source project to contribute with the community and we are delighted to be helped by you, so if you have an idea to improve SymfonyZero or you find a bug, please create an issue and explain us clearly and with details your idea or the bug you have found.
+
+In case you are able to patch any bug or add a new feature, don't hesitate and make a pull request. First, fork the repository and clone it locally. Then, create a branch for your edits. When you end your contribution, open a pull request and we'll discuss your changes.
+
+If you have any doubt arount how to contribute using GitHub, you can read the official guide [to contribute to open source project].
+
+Also, you can contact with developers in [symfony@emergya.com]. We'll be glad to talk with you :)
  
 
 [//]: # 
    [oficial site]: <http://symfony.com/doc/current/reference/requirements.html>
+   [to contribute to open source project]: <https://guides.github.com/activities/contributing-to-open-source/>
+   [symfony@emergya.com]: <symfony@emergya.com>
