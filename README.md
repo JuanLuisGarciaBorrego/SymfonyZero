@@ -93,7 +93,7 @@ SymfonyZero has available a pre-configured third party bundles to give a solutio
 
  **Symfony Standard Edition**
  
- Extracted of the [official repository of Symfony](https://github.com/symfony/symfony-standard), here we have the pre-configured bundles we have available because they are in the Symfony Standard Edition:
+Extracted of the [official repository of Symfony](https://github.com/symfony/symfony-standard), here we have the pre-configured bundles we have available because they are in the Symfony Standard Edition:
 *  FrameworkBundle - The core Symfony framework bundle
 *  SensioFrameworkExtraBundle - Adds several enhancements, including template and routing annotation capability
 *  DoctrineBundle - Adds support for the Doctrine ORM
