@@ -56,6 +56,18 @@ $ composer install
 
 Make sure you set up right permission to run correctly the application. To do this, you can follow the instructions you can find in the [official book](http://symfony.com/doc/current/book/installation.html#book-installation-permissions).
 
+By default, SymfonyZero uses MySQL database called _symfony_. You need also a user with username: _symfony_ and password: _symfony_. Of course, you can change this (you must it!), and in config section you can learn how change it. When you have this user created in your MySQL, you need run this command to create de database and his schema:
+
+ ```sh
+$ php bin/console doctrine:database:create
+```
+
+If you change the model, remember you have to do this:
+
+```sh
+$ php bin/console doctrine:schema:update --force
+```
+
 To run the application you have to configure your web server correctly. You can see how to configure it in the [official guide](http://symfony.com/doc/current/cookbook/configuration/web_server_configuration.html). When you have your server running and configured, you can check the installation in your browser:
 ```
 http://localhost:8000/config.php
