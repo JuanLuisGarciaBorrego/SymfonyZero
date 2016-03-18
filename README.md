@@ -78,20 +78,22 @@ SymfonyZero has available a pre-configured third party bundles to give a solutio
 *  [RaulFraileLadybugBundle](https://github.com/raulfraile/LadybugBundle) - RaulFraileLadybugBundle provides an easy and extensible var_dump/print_r replacement for Symfony projects, both in controllers or Twig templates.
 *  [XsolveCookieAcknowledgementBundle](https://github.com/xsolve-pl/xsolve-cookie-acknowledgement-bundle) - XsolveCookieAcknowledgementBundle provides information about an cookies usage, which is forced by European Union by so-called EU cookie law.
   
-**Common Sections and Funcionallity**
 
-*  Landing page with slider
-*  Private section to manage entities
-*  Contact form with email service pre-configured
-*  Login, register and password change functionallity
-*  Newsletter form integrate with Mailchimp service
-*  About me section
-*  Terms & Conditions section
-*  Demo page with paged registered user list
-*  Header section with company's logo and dynamic menu
-*  Footer section with common links
+**Common Sections and Funcionallity**
+ 
+ * Landing page with slider
+ * Private section to manage entities
+ * Contacto form with email service pre-configured
+ * Login, register and password change
+ * Newsletter form integrated with Mialchimp service
+ * About me section
+ * Terms & Conditions section
+ * Demo page with paged registered users list
+ * Header section with company's logo and dynamic menu
+ * Footer section with common links
+
   
- **Symfony Standard Edition**
+**Symfony Standard Edition**
  
 Extracted of the [official repository of Symfony](https://github.com/symfony/symfony-standard), here we have the pre-configured bundles we have available because they are in the Symfony Standard Edition:
 
