@@ -64,7 +64,47 @@ Now you can build your own project using SymfonyZero by yourself. You have avail
  
 # Features
  
- Work in progress
+ SymfonyZero helps you to develop build your web applications quickly. SymfonyZero is made up of several bundles (Symfony Standard Edition bundles and Third party bundles) and usual features and sections which appears in a wide range of websites. In this section you can read what is included in each of these parts.
+ 
+**Third Party Bundles**
+
+SymfonyZero has available a pre-configured third party bundles to give a solution for the most common needs of the web projects. In this list you can discover what bundles are installed and the link to access to their official repositories.
+
+*  [FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle) - FOSUserBundle provides a flexible framework for user management that aims to handle common tasks such as user registration and password retrieval.
+*  [EasyAdminBundle](https://github.com/javiereguiluz/EasyAdminBundle) - EasyAdminBundle lets you create administration backends for Symfony applications with unprecedented simplicity.
+*  [KnpPaginatorBundle](https://github.com/KnpLabs/KnpPaginatorBundle) - KnpPaginatorBundle is a friendly Symfony paginator to paginate everything.
+*  [WhiteOctoberBreadcrumbsBundle](https://github.com/whiteoctober/BreadcrumbsBundle) - WhiteOctoberBreadcrumbsBundle provides a easy way to create bread crumbs.
+*  [StfalconTinymceBundle](https://github.com/stfalcon/TinymceBundle) - StfalconTinymceBundle makes it very easy to add the TinyMCE WYSIWYG editor to your Symfony project.
+*  [RaulFraileLadybugBundle](https://github.com/raulfraile/LadybugBundle) - RaulFraileLadybugBundle provides an easy and extensible var_dump/print_r replacement for Symfony projects, both in controllers or Twig templates.
+*  [XsolveCookieAcknowledgementBundle](https://github.com/xsolve-pl/xsolve-cookie-acknowledgement-bundle) - XsolveCookieAcknowledgementBundle provides information about an cookies usage, which is forced by European Union by so-called EU cookie law.
+  
+**Common Sections and Funcionallity**
+
+*  Landing page with slider
+*  Private section to manage entities
+*  Contact form with email service pre-configured
+*  Login, register and password change functionallity
+*  Newsletter form integrate with Mailchimp service
+*  About me section
+*  Terms & Conditions section
+*  Demo page with paged registered user list
+*  Header section with company's logo and dynamic menu
+*  Footer section with common links
+
+ **Symfony Standard Edition**
+ 
+ Extracted of the [official repository of Symfony](https://github.com/symfony/symfony-standard), here we have the pre-configured bundles we have available because they are in the Symfony Standard Edition:
+*  FrameworkBundle - The core Symfony framework bundle
+*  SensioFrameworkExtraBundle - Adds several enhancements, including template and routing annotation capability
+*  DoctrineBundle - Adds support for the Doctrine ORM
+*  TwigBundle - Adds support for the Twig templating engine
+*  SecurityBundle - Adds security by integrating Symfony's security component
+*  SwiftmailerBundle - Adds support for Swiftmailer, a library for sending emails
+*  MonologBundle - Adds support for Monolog, a logging library
+*  WebProfilerBundle (in dev/test env) - Adds profiling functionality and the web debug toolbar
+*  SensioDistributionBundle (in dev/test env) - Adds functionality for configuring and working with Symfony distributions
+*  SensioGeneratorBundle (in dev/test env) - Adds code generation capabilities
+*  DebugBundle (in dev/test env) - Adds Debug and VarDumper component integration
  
 # Config
  
@@ -76,12 +116,6 @@ This is an open source project to contribute with the community and we are delig
 
 In case you are able to patch any bug or add a new feature, don't hesitate and make a pull request. First, fork the repository and clone it locally. Then, create a branch for your edits. When you end your contribution, open a pull request and we'll discuss your changes.
 
-If you have any doubt arount how to contribute using GitHub, you can read the official guide [to contribute to open source project].
+If you have any doubt arount how to contribute using GitHub, you can read the official guide [to contribute to open source project](https://guides.github.com/activities/contributing-to-open-source/).
 
-Also, you can contact with developers in [symfony@emergya.com]. We'll be glad to talk with you :)
- 
-
-[//]: # 
-   [oficial site]: <http://symfony.com/doc/current/reference/requirements.html>
-   [to contribute to open source project]: <https://guides.github.com/activities/contributing-to-open-source/>
-   [symfony@emergya.com]: <symfony@emergya.com>
+Also, you can contact with developers in [symfony@emergya.com](symfony@emergya.com). We'll be glad to talk with you :)
