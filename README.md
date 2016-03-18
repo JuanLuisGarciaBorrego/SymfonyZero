@@ -3,7 +3,7 @@ SymfonyZero
 
 # What is?
  
-SymfonyZero is a free fully functional kickstarter edition. You can use it as a base for your Symfony web projects with a typical architecture. SymfonyZero includes the most common bundles preconfigured and the usual sections of a website.
+SymfonyZero is a free fully functional kickstarter edition. You can use it as a base for your Symfony web projects with a typical architecture. SymfonyZero includes the most common bundles preconfigured and the usual sections of a website. SymfonyZero helps you to build web projects more quiclky, saving time in the early stages of the development. Also, you can enable or disable any feature easily, and also, SymfonyZero is fully configurable to adapt it to the needs of your project.
 
 In this documentation you can learn about how to install, configure, what bundles and sections are availables and how you can help to imporove it. SymfonyZero is an alive project and we'll be adding new features and improvements, so stay tuned for new updates.
 
@@ -42,7 +42,25 @@ POSIX needs to be enabled (only on *nix)
 
 # Setup
  
- Work in progress
+  Install SymfonyZero as base of your projects is very easy. First, you have to clone this repository in your web root directory:
+ 
+ ```sh
+$ git clone https://github.com/Emergya/book-a-look-back.git
+```
+
+Then, you have to install vendors using Composer. If you don't have Composer installed, follow the instructions that you can find in [his web site](https://getcomposer.org/). Once you have Composer installed you'll can install vendors:
+
+ ```sh
+$ composer install
+```
+
+Make sure you set up right permission to run correctly the application. To do this, you can follow the instructions you can find in the [official book](http://symfony.com/doc/current/book/installation.html#book-installation-permissions).
+
+To run the application you have to configure your web server correctly. You can see how to configure it in the [official guide](http://symfony.com/doc/current/cookbook/configuration/web_server_configuration.html). When you have your server running and configured, you can check the installation in your browser:
+```
+http://localhost:8000/config.php
+```
+Now you can build your own project using SymfonyZero by yourself. You have available differents bundles and sections. To enable or disable these options, and to know how to configure all the posibilities of SymfonyZero, read next chapters about the current features availables and how you can configure them.
  
 # Features
  
