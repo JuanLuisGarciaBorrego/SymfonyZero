@@ -23,6 +23,7 @@ class AppKernel extends Kernel
             new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
             new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle(),
             new Xsolve\CookieAcknowledgementBundle\XsolveCookieAcknowledgementBundle(),
+            new Sonata\SeoBundle\SonataSeoBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
