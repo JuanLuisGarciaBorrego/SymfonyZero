@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -75,6 +76,26 @@ class DefaultController extends Controller
             $emailService->sendEmail($email['subject'], $email['from'], $email['to'], $email['template'], $email);
             
             return true;
+    }
+    
+    
+    /**
+     * @Route("/contact", name="contact")
+     * 
+     */
+    public function contactAction(Request $request)
+    {
+        
+        $form = $this->createForm(new \AppBundle\Form\ContactType(), null, array(
+            'action' => $this->generateUrl('homepage'),
+            'method' => 'POST',
+            'attr'=>array('id'=>'contact_form')
+        ));
+        
+        // replace this example code with whatever you need
+        return $this->render('default/contact.html.twig', [
+            'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
+        ]);
     }
     
 }
