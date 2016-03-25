@@ -4,9 +4,10 @@ namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-
+use AppBundle\Form\ContactType;
 class DefaultController extends Controller
 {
     /**
@@ -15,10 +16,35 @@ class DefaultController extends Controller
     public function indexAction(Request $request)
     {
         // replace this example code with whatever you need
-        return $this->render('default/index.html.twig', [
+        return $this->render('AppBundle:Default:index.html.twig', [
             'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
         ]);
     }
+
+    
+    
+/**
+     * @Route("/included-bundles", name="included-bundles")
+ *      @Template()
+     */
+    public function includedBundlesAction(Request $request)
+    {
+        
+        return $this->render('AppBundle:Default:demo.functions.html.twig');
+
+    }
+    
+/**
+     * @Route("/about", name="about")
+ *      @Template()
+     */
+    public function aboutAction(Request $request)
+    {
+        
+        return $this->render('AppBundle:Default:about.html.twig');
+
+    }
+    
     /**
      * @Route("/paginator", name="paginator_sample")
      */
@@ -63,7 +89,7 @@ class DefaultController extends Controller
     }
     
     /**
-     * @Route("/contact", name="contact")
+     * @Route("/contact_s", name="contact_s")
      */
     public function mailAction(Request $request) {
         $emailService = $this->get('symfonyzero.email');
@@ -81,21 +107,40 @@ class DefaultController extends Controller
     
     /**
      * @Route("/contact", name="contact")
-     * 
+     * @Method ({"GET","POST"})     
      */
     public function contactAction(Request $request)
     {
         
-        $form = $this->createForm(new \AppBundle\Form\ContactType(), null, array(
-            'action' => $this->generateUrl('homepage'),
+        if(!empty($request->request->all())){
+            $this->addFlash("info", "The e-mail would be sent!");
+        }
+        
+        $form = $this->createForm(ContactType::class, null, array(
+            'action' => $this->generateUrl('contact'),
             'method' => 'POST',
             'attr'=>array('id'=>'contact_form')
         ));
         
+
         // replace this example code with whatever you need
-        return $this->render('default/contact.html.twig', [
+        // 
+        return $this->render('AppBundle:Default:contact.html.twig', [
+            'form'=>$form->createView(),
             'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
         ]);
+    }
+    
+    
+/**
+     * @Route("/readme", name="readme")
+ *      @Template()
+     */
+    public function readMeAction(Request $request)
+    {
+        
+        return $this->render('AppBundle:Default:docs/readme.html.twig');
+
     }
     
 }

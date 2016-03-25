@@ -16,9 +16,19 @@
         <div id="container">
             <div id="welcome">
                 <a href="{{path('homepage')}}"><img src="{{asset("bundles/app/images/emergya.png")}}" alt="Emergya"></a><p/>
-                <h1>SymfonyZero based on  {{ constant('Symfony\\Component\\HttpKernel\\Kernel::VERSION') }}</h1>
+                <h2>SymfonyZero based on  {{ constant('Symfony\\Component\\HttpKernel\\Kernel::VERSION') }}</h2>
             </div>
-
+            <div class="menu">
+            {{ knp_menu_render('AppBundle:Builder:mainMenu') }}
+            </div>
+            
+        <div class="alert alert-success">
+        {% for flash_message in app.session.flashbag.get('info') %}
+            <div class="flash-notice">
+                {{ flash_message }}
+            </div>
+        {% endfor %}
+        </div>
             {{ wo_render_breadcrumbs() }}
             {% block body %}
             {% endblock %}
@@ -27,7 +37,6 @@
 
 
 {% block javascripts %}{% endblock %}
-
 
 {% block stylesheets %}
 <style>
@@ -52,6 +61,25 @@
     #icon-status, #icon-book { float: left; height: 64px; margin-right: 1em; margin-top: -4px; width: 64px; }
     #icon-book { display: none; }
 
+    
+    .menu {
+        border-top:1px solid gray;
+        border-bottom:1px solid gray;
+        margin-bottom:20px;
+        
+    }
+    .menu ul li {
+        display: block-inline;
+        border-right: 1px solid gray;
+        padding-right:5px;
+    }
+    .current a {color:#0c0c0c;}
+    
+    .input-group {
+        margin:5px;
+    }
+
+    
     @media (min-width: 768px) {
         #wrapper { width: 80%; margin: 2em auto; }
         #icon-book { display: inline-block; }
@@ -61,8 +89,17 @@
     @keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
         .sf-toolbar { opacity: 0; -webkit-animation: fade-in 1s .2s forwards; animation: fade-in 1s .2s forwards;}
     }
+    
+    .flash-notice, .alert-danger{
+        padding:10px;
+        margin-top:10px;
+        margin-bottom:10px;
+        border: 1px dashed gray;
+    }
+    
 </style>
 {% endblock %}
 
 </body>
 </html>
+

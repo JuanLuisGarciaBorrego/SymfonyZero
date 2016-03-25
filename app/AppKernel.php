@@ -24,6 +24,7 @@ class AppKernel extends Kernel
             new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle(),
             new Xsolve\CookieAcknowledgementBundle\XsolveCookieAcknowledgementBundle(),
             new Sonata\SeoBundle\SonataSeoBundle(),
+            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
