@@ -5,6 +5,8 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class ContactType extends AbstractType
 {
@@ -15,16 +17,11 @@ class ContactType extends AbstractType
     
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        
-        
         $builder
-            ->add('to','text',array(
-               "required" =>true,               
-            ))
-            ->add("from","text",array())
-            ->add("message","textarea",array(
-                "required"=>true
-            ))
+            ->add('to', \Symfony\Component\Form\Extension\Core\Type\EmailType::class,["required" =>true])
+            ->add("from", \Symfony\Component\Form\Extension\Core\Type\EmailType::class,array())
+            ->add("message",TextareaType::class,array("required"=>true))
+            ->add("send",  \Symfony\Component\Form\Extension\Core\Type\SubmitType::class,array())
         ;
     }
     

@@ -3,10 +3,14 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 {% block body %}
-{% if error %}
-    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-{% endif %}
+
+    
    Login form (use sample user: <b>test:test</b>)
+   <p>
+   {% if error %}
+    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+<p>
   <form action="{{ path("fos_user_security_check") }}" method="post">
     <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
     <div class="input-group">
@@ -17,6 +21,7 @@
         <span class="input-group-addon" id="login_contrasena"></span>
         <input type="password" id="password" name="_password" required="required" class="form-control" placeholder="Your password" aria-describedby="login_contrasena"/>
     </div>
+    <br/>
     <button type="submit" class="btn btn-primary pull-right" id="_submit" name="_submit" value="Login" >Login</button>
   </form>
 

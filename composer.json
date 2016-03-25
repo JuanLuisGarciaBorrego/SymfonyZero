@@ -34,7 +34,8 @@
         "stfalcon/tinymce-bundle": "dev-master",
         "raulfraile/ladybug-bundle": "~1.0",
         "xsolve-pl/xsolve-cookie-acknowledgement-bundle": "1.0.*",
-        "sonata-project/seo-bundle": "^2.0"
+        "sonata-project/seo-bundle": "^2.0",
+        "knplabs/knp-menu-bundle": "^2.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
