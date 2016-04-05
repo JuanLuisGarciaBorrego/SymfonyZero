@@ -25,24 +25,20 @@ class DefaultController extends Controller
     
 /**
      * @Route("/included-bundles", name="included-bundles")
- *      @Template()
+     * @Template()
      */
     public function includedBundlesAction(Request $request)
     {
-        
         return $this->render('AppBundle:Default:demo.functions.html.twig');
-
     }
     
 /**
      * @Route("/about", name="about")
- *      @Template()
+     * @Template()
      */
     public function aboutAction(Request $request)
     {
-        
         return $this->render('AppBundle:Default:about.html.twig');
-
     }
     
     /**
@@ -93,15 +89,16 @@ class DefaultController extends Controller
      */
     public function mailAction(Request $request) {
         $emailService = $this->get('symfonyzero.email');
-            $email = [];                    
-            $email['from'] = $this->getParameter('email_address');                    
-            $email['to'] = "jadorado@emergya.com";
-            $email['subject'] = $this->getParameter('contact_subject');                
-            $email['template'] = 'AppBundle:Templates:mailTemplate.html.twig';
-            $email['url'] = null;
-            $emailService->sendEmail($email['subject'], $email['from'], $email['to'], $email['template'], $email);
-            
-            return true;
+
+        $email = [];
+        $email['from'] = $this->getParameter('email_address');
+        $email['to'] = "to@mail.com";
+        $email['subject'] = $this->getParameter('contact_subject');
+        $email['template'] = 'AppBundle:Templates:mailTemplate.html.twig';
+        $email['url'] = null;
+        $emailService->sendEmail($email['subject'], $email['from'], $email['to'], $email['template'], $email);
+
+        return true;
     }
     
     
@@ -134,13 +131,11 @@ class DefaultController extends Controller
     
 /**
      * @Route("/readme", name="readme")
- *      @Template()
+     * @Template()
      */
     public function readMeAction(Request $request)
     {
-        
         return $this->render('AppBundle:Default:docs/readme.html.twig');
-
     }
     
 }
