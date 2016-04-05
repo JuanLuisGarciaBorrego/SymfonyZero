@@ -45,7 +45,7 @@ POSIX needs to be enabled (only on *nix)
   Install SymfonyZero as base of your projects is very easy. First, you have to clone this repository in your web root directory:
  
  ```sh
-$ git clone https://github.com/Emergya/book-a-look-back.git
+$ git clone https://github.com/Emergya/SymfonyZero.git
 ```
 
 Then, you have to install vendors using Composer. If you don't have Composer installed, follow the instructions that you can find in [his web site](https://getcomposer.org/). Once you have Composer installed you'll can install vendors:
