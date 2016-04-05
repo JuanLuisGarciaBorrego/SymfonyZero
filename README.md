@@ -89,6 +89,8 @@ SymfonyZero has available a pre-configured third party bundles to give a solutio
 *  [StfalconTinymceBundle](https://github.com/stfalcon/TinymceBundle) - StfalconTinymceBundle makes it very easy to add the TinyMCE WYSIWYG editor to your Symfony project.
 *  [RaulFraileLadybugBundle](https://github.com/raulfraile/LadybugBundle) - RaulFraileLadybugBundle provides an easy and extensible var_dump/print_r replacement for Symfony projects, both in controllers or Twig templates.
 *  [XsolveCookieAcknowledgementBundle](https://github.com/xsolve-pl/xsolve-cookie-acknowledgement-bundle) - XsolveCookieAcknowledgementBundle provides information about an cookies usage, which is forced by European Union by so-called EU cookie law.
+*  [SonataSeoBundle](https://github.com/sonata-project/SonataSeoBundle) - SonataSeoBundle provides a Site and Page management through container and block services.
+*  [KnpMenuBundle](https://github.com/KnpLabs/KnpMenuBundle) - KnpMenuBundle integrates the KnpMenu PHP library with Symfony. This means easy-to-implement and feature-rich menus in Symfony applications.
   
 
 **Common Sections and Funcionallity**
@@ -123,7 +125,70 @@ Extracted of the [official repository of Symfony](https://github.com/symfony/sym
  
 # Config
  
- Work in progress
+ In this section you will learn how to configure all the posibilities of SymfonyZero. You can modify a lot of features, including versions.
+
+If you want to change the *Symfony version* you must edit the file _composer.json_, specifically the line:
+
+```
+"symfony/symfony": "3.0.*",
+```
+
+Changing this for the version you prefer, when you running _composer install_, you will get that version of Symfony. Remember that some bundles could work differently for other versions of Symfony. Also, changing that file you can change the version of the bundle you prefer, for example, if you want to change the version of KnpPaginatorBundle, you have to change next line:
+
+```
+"knplabs/knp-paginator-bundle": "^2.5",
+```
+
+By the fault all the bundles are enabled, you can *disable any bundle* if you will not use. For this purpose, you must modify the _AppKernel.php_ file. You can find it in _app/_. In that file you will see all the bundles enabled for all environments. If you want to disable one bundle, just comment it. For example, to disable SonataSeoBundle:
+
+```php
+//new Sonata\SeoBundle\SonataSeoBundle(),
+```
+
+Also, if you will never use this bundle, you can remove if from your _composer.json_ file.
+
+Another modification you can do is the *database configuration*. By default SymfonyZero is prepared to use a database called _symfony_ with a user _symfony_ with password _symfony_. For security reasons you should change it. To do this you have to edit the _parameters.yml_ file you can find in _app/config/_ route. Once time you create your new database and the user, you can edit this file. The parameters you must change are:
+
+```yml
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: symfony
+    database_user: symfony
+    database_password: symfony
+```
+
+SymfonyZero is prepared to *send emails* with a email service provider. You can modify this to use your favourite system to send emails, for example Gmail, Mandrill, Amazon's SES... To change this you have to edit the _parameters.yml_ file you can find in _app/config/_ route.
+
+```yml
+    mailer_transport: smtp
+    mailer_host: smtp.mandrillapp.com
+    mailer_user: MAIL_USER
+    mailer_password: MAIL_PASSWORD
+```
+
+To send a email SymfonyZero provides a service which uses Swiftmailer and you can call from anywhere of your application:
+
+```php
+$emailService = $this->get('symfonyzero.email');
+$emailService->sendEmail($email['subject'], $email['from'], $email['to'], $email['template'], $email);
+```
+
+This service now is using a template placed in _src/AppBundle/Resources/views/Tempaltes_, but you are free to create and use all the templates you need. Also the last parameter is an array with parameteres with which you can work in the twig template.
+
+All the functions are used like an examples in DefaultController only with the goal you know how can you use them. In a real application you must remove them and use only the functions and views you need. Also you can find a User entity based in FOSUserBundle users, a contact form, menu builder and a private section in _/admin/_ path only reachable for admin users. Feel free to use, modify or remove all the features to agilice the develop of your own application.
+
+Of course, *each bundle* has a lot of different configuration you can change to adjust them to your needs. By default, SymfonyZero has the usual configuration for each bundle, but of course you can modify them. For this, you have to do these editions in _config.yml_ file which you can find in _app/config/_ route. For example, EaslyAdminBundle is prepared for the User Entity, but if you wan to add a new one, you only have to modify this:
+
+```yml
+easy_admin:
+    entities:
+        - AppBundle\Entity\User
+        - AppBundle\Entity\YourNewEntity
+```
+
+In the previous section, you can find all the links for the official documentation for each bundle. Check it if you want to know all the posibilities to customize your application.
+
+With little knowledge of Symfony you will be able to use all the SymfonyZero posibilities and you will increase improve the development of your own applications.
  
 # Improvements and contact
  
