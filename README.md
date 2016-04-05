@@ -166,6 +166,17 @@ SymfonyZero is prepared to *send emails* with a email service provider. You can 
     mailer_password: MAIL_PASSWORD
 ```
 
+To send a email SymfonyZero provides a service which uses Swiftmailer and you can call from anywhere of your application:
+
+```php
+$emailService = $this->get('symfonyzero.email');
+$emailService->sendEmail($email['subject'], $email['from'], $email['to'], $email['template'], $email);
+```
+
+This service now is using a template placed in _src/AppBundle/Resources/views/Tempaltes_, but you are free to create and use all the templates you need. Also the last parameter is an array with parameteres with which you can work in the twig template.
+
+All the functions are used like an examples in DefaultController only with the goal you know how can you use them. In a real application you must remove them and use only the functions and views you need. Also you can find a User entity based in FOSUserBundle users, a contact form, menu builder and a private section in _/admin/_ path only reachable for admin users. Feel free to use, modify or remove all the features to agilice the develop of your own application.
+
 Of course, *each bundle* has a lot of different configuration you can change to adjust them to your needs. By default, SymfonyZero has the usual configuration for each bundle, but of course you can modify them. For this, you have to do these editions in _config.yml_ file which you can find in _app/config/_ route. For example, EaslyAdminBundle is prepared for the User Entity, but if you wan to add a new one, you only have to modify this:
 
 ```yml
@@ -176,6 +187,8 @@ easy_admin:
 ```
 
 In the previous section, you can find all the links for the official documentation for each bundle. Check it if you want to know all the posibilities to customize your application.
+
+With little knowledge of Symfony you will be able to use all the SymfonyZero posibilities and you will increase improve the development of your own applications.
  
 # Improvements and contact
  
