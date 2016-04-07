@@ -60,6 +60,7 @@ By default, SymfonyZero uses MySQL database called _symfony_. You need also a us
 
  ```sh
 $ php bin/console doctrine:database:create
+$ php bin/console doctrine:schema:create
 ```
 
 If you change the model, remember you have to do this:
