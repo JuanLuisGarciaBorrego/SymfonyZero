@@ -3,40 +3,33 @@
 namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Form\ContactType;
+
 class DefaultController extends Controller
 {
     /**
      * @Route("/", name="homepage")
      */
-    public function indexAction(Request $request)
+    public function indexAction()
     {
-        // replace this example code with whatever you need
-        return $this->render('AppBundle:Default:index.html.twig', [
-            'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
-        ]);
+        return $this->render('AppBundle:Default/index.html.twig');
     }
 
-    
-    
-/**
+    /**
      * @Route("/included-bundles", name="included-bundles")
-     * @Template()
      */
-    public function includedBundlesAction(Request $request)
+    public function includedBundlesAction()
     {
         return $this->render('AppBundle:Default:demo.functions.html.twig');
     }
     
-/**
+    /**
      * @Route("/about", name="about")
-     * @Template()
      */
-    public function aboutAction(Request $request)
+    public function aboutAction()
     {
         return $this->render('AppBundle:Default:about.html.twig');
     }
@@ -50,11 +43,6 @@ class DefaultController extends Controller
         $breadcrumbs->addItem("Home", $this->get("router")->generate("homepage"));        
         $breadcrumbs->addItem("Sample section");        
 
-        $sampleData=[];
-        for($i=0;$i<300;$i++)
-            $sampleData[]="Lorem ipsum ".$i;
-        
-        
         $em    = $this->get('doctrine.orm.entity_manager');
         $dql   = "SELECT a FROM AppBundle:User a";
         $query = $em->createQuery($dql);
@@ -74,7 +62,7 @@ class DefaultController extends Controller
     /**
      * @Route("/tinyMCE-example", name="tmce_sample")
      */
-    public function tinyMCEAction(Request $request)
+    public function tinyMCEAction()
     {   
         $breadcrumbs = $this->get("white_october_breadcrumbs");        
         $breadcrumbs->addItem("Home", $this->get("router")->generate("homepage"));        
@@ -87,7 +75,7 @@ class DefaultController extends Controller
     /**
      * @Route("/contact_s", name="contact_s")
      */
-    public function mailAction(Request $request) {
+    public function mailAction() {
         $emailService = $this->get('symfonyzero.email');
 
         $email = [];
@@ -100,7 +88,6 @@ class DefaultController extends Controller
 
         return true;
     }
-    
     
     /**
      * @Route("/contact", name="contact")
@@ -118,24 +105,18 @@ class DefaultController extends Controller
             'method' => 'POST',
             'attr'=>array('id'=>'contact_form')
         ));
-        
 
-        // replace this example code with whatever you need
-        // 
         return $this->render('AppBundle:Default:contact.html.twig', [
             'form'=>$form->createView(),
             'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
         ]);
     }
-    
-    
-/**
+
+    /**
      * @Route("/readme", name="readme")
-     * @Template()
      */
-    public function readMeAction(Request $request)
+    public function readMeAction()
     {
         return $this->render('AppBundle:Default:docs/readme.html.twig');
     }
-    
 }
