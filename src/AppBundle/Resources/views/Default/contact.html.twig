@@ -1,28 +1,18 @@
 {% extends '::base.html.twig' %}
-{%block body%}
-    {{form_start(form)}}
+
+{% block body %}
+
+    {{ form_start(form) }}
+
     <div id="contact">
         Using this form you will send an email, obviously is not functional, is just for demonstration purposes.
-        <p/>
-        <div style="clear:both">
-            <div style="float:left;width:200px">{{form_label(form.to)}}</div>
-            <div style="float:left">{{form_widget(form.to)}}</div>
-        </div>
-        <div style="clear:both">
-            <div style="float:left;width:200px">{{form_label(form.from)}}</div>
-            <div style="float:left">{{form_widget(form.from)}}</div>
-        </div>
-        <div style="clear:both">
-            <div style="float:left;width:200px">{{form_label(form.message)}}</div>
-            <div style="float:left">{{form_widget(form.message)}}</div>
-        </div>
-        <div style="clear:both">            
-            <div style="float:left">{{form_widget(form.send)}}</div>
-        </div>
+
+        {{ form_widget(form) }}
+
+        <input type="submit" value="Send Email"/>
 
     </div>
-        <div style="clear:both"></div>            
-        
-        <hr>
-    {{form_end(form)}}
-{%endblock%}
+
+    {{ form_end(form) }}
+
+{% endblock %}

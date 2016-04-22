@@ -1,8 +1,6 @@
 # Learn more about services, parameters and containers at
 # http://symfony.com/doc/current/book/service_container.html
 parameters:
-    email_address: "info@symfonyzero.com"
-    contact_subject: "contact"
 
 services:
     fos_user.doctrine_registry:
@@ -10,4 +8,4 @@ services:
         
     symfonyzero.email:
         class:  AppBundle\Services\Email
-        arguments: ['@swiftmailer.mailer', '@templating']
+        arguments: ['@swiftmailer.mailer', '@templating', '%mailer_user%']
