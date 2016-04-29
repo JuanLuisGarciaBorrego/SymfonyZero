@@ -7,6 +7,7 @@ use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+
 class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
     /**
@@ -27,13 +28,21 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
     {
         $userManager = $this->container->get('fos_user.user_manager');
 
+        $admin = $userManager->createUser();
+        $admin->setUsername('admin');
+        $admin->setEmail('admin@symfonyzero.es');
+        $admin->setPlainPassword('admin');
+        $admin->setRoles(['ROLE_ADMIN']);
+        $admin->setEnabled(true);
+
         $user = $userManager->createUser();
-        $user->setUsername('admin');
-        $user->setEmail('admin@symfonyzero.es');
-        $user->setPlainPassword('admin');
-        $user->setRoles(['ROLE_ADMIN']);
+        $user->setUsername('user');
+        $user->setEmail('user@symfonyzero.es');
+        $user->setPlainPassword('user');
+        $user->setRoles(['ROLE_USER']);
         $user->setEnabled(true);
 
+        $userManager->updateUser($admin);
         $userManager->updateUser($user);
     }
 
