@@ -32,7 +32,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
         $admin->setUsername('admin');
         $admin->setEmail('admin@symfonyzero.es');
         $admin->setPlainPassword('admin');
-        $admin->setRoles(['ROLE_ADMIN']);
+        $admin->setRoles(['ROLE_ADMIN', 'ROLE_ALLOWED_TO_SWITCH']);
         $admin->setEnabled(true);
 
         $user = $userManager->createUser();
