@@ -106,6 +106,7 @@ SymfonyZero has available a pre-configured third party bundles to give a solutio
  * Demo page with paged registered users list
  * Header section with company's logo and dynamic menu
  * Footer section with common links
+ * data fixtures with example users
 
   
 **Symfony Standard Edition**
@@ -186,6 +187,16 @@ easy_admin:
         - AppBundle\Entity\User
         - AppBundle\Entity\YourNewEntity
 ```
+
+SymfonyZero provides an example of data fixtures with some users. You can use it to test the application with these users (with different roles) or to generate your own data fixture using these like a base of your owns.
+
+You can find the fixtures already created in _src/AppBundle/DataFixtures/ORM/LoadUserData.php_ and you can generate these datas using next console command:
+
+```sh
+$ php bin/console doctrine:fixtures:load
+```
+
+Once you run this command, you can log in the application using one of these users you can find in the _LoadUserData.php_ class. For security reasons remember delete these useres before your application will be in a production environment.
 
 In the previous section, you can find all the links for the official documentation for each bundle. Check it if you want to know all the posibilities to customize your application.
 
