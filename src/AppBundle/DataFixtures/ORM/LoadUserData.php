@@ -15,14 +15,14 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
      */
     private $container;
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function setContainer(ContainerInterface $container = null)
     {
         $this->container = $container;
     }
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function load(ObjectManager $manager)
     {
@@ -47,11 +47,11 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
     }
 
     /**
-     * Get the order of this fixture
+     * Get the order of this fixture.
      *
-     * @return integer
+     * @return int
      */
-    function getOrder()
+    public function getOrder()
     {
         return 1;
     }
