@@ -3,8 +3,8 @@
 
 namespace AppBundle\Entity;
 
-use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as BaseUser;
 
 /**
  * @ORM\Entity
@@ -19,24 +19,26 @@ class User extends BaseUser
      */
     protected $id;
 
-
     public function __construct()
     {
         parent::__construct();
         // your own logic
     }
-    
-    
-    public function setExpiresAt(\DateTime $date = null) {
+
+    public function setExpiresAt(\DateTime $date = null)
+    {
         parent::setExpiresAt($date);
     }
-    public function getExpiresAt(){
+    public function getExpiresAt()
+    {
         return $this->expiresAt;
     }
-    public function setCredentialsExpireAt(\DateTime $date = null) {
+    public function setCredentialsExpireAt(\DateTime $date = null)
+    {
         parent::setCredentialsExpireAt($date);
     }
-    public function getCredentialsExpireAt(){
+    public function getCredentialsExpireAt()
+    {
         return $this->credentialsExpireAt;
     }
 }

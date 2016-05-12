@@ -1,4 +1,5 @@
-<?php
+q<?php
+
 namespace AppBundle\Menu;
 
 use Knp\Menu\FactoryInterface;

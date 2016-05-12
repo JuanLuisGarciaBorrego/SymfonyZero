@@ -2,11 +2,11 @@
 
 namespace AppBundle\Controller;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use AppBundle\Form\Type\ContactType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use AppBundle\Form\Type\ContactType;
 
 class DefaultController extends Controller
 {
@@ -39,12 +39,12 @@ class DefaultController extends Controller
      */
     public function paginatorAction(Request $request)
     {
-        $breadcrumbs = $this->get("white_october_breadcrumbs");
-        $breadcrumbs->addItem("Home", $this->get("router")->generate("homepage"));
-        $breadcrumbs->addItem("Sample section");
+        $breadcrumbs = $this->get('white_october_breadcrumbs');
+        $breadcrumbs->addItem('Home', $this->get('router')->generate('homepage'));
+        $breadcrumbs->addItem('Sample section');
 
         $em = $this->get('doctrine.orm.entity_manager');
-        $dql = "SELECT a FROM AppBundle:User a";
+        $dql = 'SELECT a FROM AppBundle:User a';
         $query = $em->createQuery($dql);
 
         $paginator = $this->get('knp_paginator');
@@ -56,7 +56,6 @@ class DefaultController extends Controller
         );
 
         return $this->render('AppBundle:Default:paginator.html.twig', array('pagination' => $pagination));
-
     }
 
     /**
@@ -64,12 +63,11 @@ class DefaultController extends Controller
      */
     public function tinyMCEAction()
     {
-        $breadcrumbs = $this->get("white_october_breadcrumbs");
-        $breadcrumbs->addItem("Home", $this->get("router")->generate("homepage"));
-        $breadcrumbs->addItem("TinyMCE Example");
+        $breadcrumbs = $this->get('white_october_breadcrumbs');
+        $breadcrumbs->addItem('Home', $this->get('router')->generate('homepage'));
+        $breadcrumbs->addItem('TinyMCE Example');
 
         return $this->render('AppBundle:Default:tinymce.html.twig');
-
     }
 
     /**
@@ -91,7 +89,7 @@ class DefaultController extends Controller
                 'AppBundle:Templates:mailTemplate.html.twig'
             );
 
-            $this->addFlash("info", "The e-mail was sent!");
+            $this->addFlash('info', 'The e-mail was sent!');
 
             $this->redirectToRoute('contact');
         }

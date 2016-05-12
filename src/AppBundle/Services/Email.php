@@ -6,9 +6,9 @@ use Swift_Mailer;
 use Symfony\Bundle\TwigBundle\TwigEngine;
 
 /**
- * Mail sender from any part of the application
+ * Mail sender from any part of the application.
  */
-Class Email
+class Email
 {
     /**
      * @var Swift_Mailer
@@ -22,14 +22,15 @@ Class Email
 
     /**
      * @var string mailer_user
-     * #parameters.yml
+     *             #parameters.yml
      */
     private $email;
 
     /**
      * Email constructor.
+     *
      * @param Swift_Mailer $mailer
-     * @param TwigEngine $templating
+     * @param TwigEngine   $templating
      */
     public function __construct(Swift_Mailer $mailer, TwigEngine $templating, $email)
     {
@@ -47,7 +48,6 @@ Class Email
      */
     public function sendEmail($subject, $from = null, $to, $template, $params = null)
     {
-
         $message = \Swift_Message::newInstance()
             ->setSubject($subject)
             ->setFrom(($from) ? $from : $this->email)
