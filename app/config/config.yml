@@ -165,3 +165,18 @@ knp_menu:
     templating: false
     # the renderer to use, list is also available by default
     default_renderer: twig
+
+#lsw_memcache:
+#    session:
+#        pool: default
+#    pools:
+#        default:
+#            servers:
+#              - { host: localhost, tcp_port: 11211 }
+
+sonata_intl:
+    timezone:
+        default: Europe/Madrid
+        locales:
+            en_UK: Europe/London
+            fr:    Europe/Paris

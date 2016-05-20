@@ -39,6 +39,24 @@ POSIX needs to be enabled (only on *nix)
  ```
  
  If you change the Symfony version, these requirements could change. In this case you must visit the [oficial site] to check them.
+ 
+ SymfonyZero provides integration with Memcache, so you need to install previously some dependencies:
+ 
+ ```sh
+ apt-get install memcached php5-memcache
+ ```
+ 
+ If you don't want to use memcache, you can disable the bundle before the setup process. To do this, remove in composer.json the line:
+ 
+ ```sh
+ "leaseweb/memcache-bundle": "^2.1",
+ ```
+ 
+ and in the file _app/AppKernel.php_ the line:
+ 
+ ```sh
+ new Lsw\MemcacheBundle\LswMemcacheBundle(),
+ ```
 
 # Setup
  
@@ -92,6 +110,8 @@ SymfonyZero has available a pre-configured third party bundles to give a solutio
 *  [XsolveCookieAcknowledgementBundle](https://github.com/xsolve-pl/xsolve-cookie-acknowledgement-bundle) - XsolveCookieAcknowledgementBundle provides information about an cookies usage, which is forced by European Union by so-called EU cookie law.
 *  [SonataSeoBundle](https://github.com/sonata-project/SonataSeoBundle) - SonataSeoBundle provides a Site and Page management through container and block services.
 *  [KnpMenuBundle](https://github.com/KnpLabs/KnpMenuBundle) - KnpMenuBundle integrates the KnpMenu PHP library with Symfony. This means easy-to-implement and feature-rich menus in Symfony applications.
+*  [LswMemcacheBundle](https://github.com/LeaseWeb/LswMemcacheBundle) - LswMemcacheBundle provides Memcache integration into Symfony and Doctrine for session storage and caching.
+*  [SonataIntlBundle](https://github.com/sonata-project/SonataIntlBundle) - SonataIntlBundle provides text and date formatting depends on locale.
   
 
 **Common Sections and Funcionallity**

@@ -25,6 +25,8 @@ class AppKernel extends Kernel
             new Xsolve\CookieAcknowledgementBundle\XsolveCookieAcknowledgementBundle(),
             new Sonata\SeoBundle\SonataSeoBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+            new Lsw\MemcacheBundle\LswMemcacheBundle(),
+            new Sonata\IntlBundle\SonataIntlBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
@@ -37,7 +39,7 @@ class AppKernel extends Kernel
 
         return $bundles;
     }
-
+//php bin/console doctrine:fixture:load
     public function getRootDir()
     {
         return __DIR__;
