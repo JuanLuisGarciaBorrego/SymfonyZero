@@ -57,6 +57,24 @@ POSIX needs to be enabled (only on *nix)
  ```sh
  new Lsw\MemcacheBundle\LswMemcacheBundle(),
  ```
+ 
+ Also, to install the bundle to work with MailChimp you need to install curl:
+ 
+ ```sh
+ apt-get install memcached php5-curl
+ ```
+ 
+ If you don't want to use it, you must disable the bundle before the setup process in composer.json:
+ 
+  ```sh
+ "mlpz/mailchimp-bundle": "dev-master",
+ ```
+ 
+ And in the file _app/AppKernel.php_ remove the line:
+ 
+  ```sh
+ new MZ\MailChimpBundle\MZMailChimpBundle(),
+ ```
 
 # Setup
  
