@@ -1,11 +1,10 @@
 # Learn more about services, parameters and containers at
 # http://symfony.com/doc/current/book/service_container.html
+imports:
+    - { resource: "@AppBundle/Resources/config/services.yml" }
+
 parameters:
 
 services:
     fos_user.doctrine_registry:
         alias: doctrine
-        
-    symfonyzero.email:
-        class:  AppBundle\Services\Email
-        arguments: ['@swiftmailer.mailer', '@templating', '%mailer_user%']

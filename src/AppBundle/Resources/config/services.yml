@@ -1,0 +1,8 @@
+imports:
+    - { resource: repositories.yml }
+    - { resource: managers.yml }
+
+services:
+    symfonyzero.email:
+        class:  AppBundle\Services\Email
+        arguments: ['@swiftmailer.mailer', '@templating', '%mailer_user%']
