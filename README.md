@@ -11,11 +11,11 @@ If you detect an error, you know how to improve it or you have an idea about thi
 
 # Requirements
 
-SymfonyZero uses Symfony 3.0.2 version (although you can change it easily), so you need to keep in your mind these requirements:
+SymfonyZero uses Symfony 2.8.6 version (although you can change it easily), so you need to keep in your mind these requirements:
 
 **Mandatory**
  ```
-* PHP needs to be a minimum version of PHP 5.5.9
+* PHP needs to be a minimum version of PHP 5.3.9
 * JSON needs to be enabled
 * ctype needs to be enabled
 * Your php.ini needs to have the date.timezone setting
@@ -153,7 +153,7 @@ Extracted of the [official repository of Symfony](https://github.com/symfony/sym
 If you want to change the *Symfony version* you must edit the file _composer.json_, specifically the line:
 
 ```
-"symfony/symfony": "3.0.*",
+"symfony/symfony": "2.8.*",
 ```
 
 Changing this for the version you prefer, when you running _composer install_, you will get that version of Symfony. Remember that some bundles could work differently for other versions of Symfony. Also, changing that file you can change the version of the bundle you prefer, for example, if you want to change the version of KnpPaginatorBundle, you have to change next line:
@@ -220,6 +220,8 @@ $ php bin/console doctrine:fixtures:load
 Once you run this command, you can log in the application using one of these users you can find in the _LoadUserData.php_ class. For security reasons remember delete these useres before your application will be in a production environment.
 
 In the previous section, you can find all the links for the official documentation for each bundle. Check it if you want to know all the posibilities to customize your application.
+
+By default, SymfonyZero provides a base repository and base manager which the most used functions like create an entity, find by id, update an entity... And a repository and manager classes like an examples (for User entity). It's a good practice if you follow this estructure when you create new entities. You can configure these files in _src/AppBundle/Resources/config_.
 
 With little knowledge of Symfony you will be able to use all the SymfonyZero posibilities and you will increase improve the development of your own applications.
  
