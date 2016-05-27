@@ -11,7 +11,7 @@ If you detect an error, you know how to improve it or you have an idea about thi
 
 # Requirements
 
-SymfonyZero uses Symfony 2.8.6 version (although you can change it easily), so you need to keep in your mind these requirements:
+SymfonyZero uses the last LTS version: Symfony 2.8.6 (although you can change it easily), so you need to keep in your mind these requirements:
 
 **Mandatory**
  ```
