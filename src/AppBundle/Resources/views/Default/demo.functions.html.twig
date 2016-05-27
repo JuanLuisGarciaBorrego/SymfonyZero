@@ -2,28 +2,37 @@
 
 {% block body %}
 <div style='float:left;width:80%'>
-Symfony Zero bundle's selection, click on the links to see the demo:
+Symfony Zero bundle's selection, click on the links to see the documentation:
 <ul>    
-    <li><a href="https://github.com/FriendsOfSymfony/FOSUserBundle">FOSUser Bundle: </a>. 
-        Click here to  
+
+    Click here to
     {%if(app.user)%}
         <a href="{{path('fos_user_security_logout')}}">logout</a>
     {%else%}
         <a href="{{path('fos_user_security_login')}}">login</a>
     {%endif%}
     </li>
-    <li><a href="{{path('admin')}}">EasyAdmin Bundle:</a> see how to easily Admin your entities</li>
-    <li><a href="{{path('paginator_sample')}}">Paginator Bundle:</a>  A simple way to paginate your records, arrays, etc.</li>
-    <li><a href='http://knpbundles.com/whiteoctober/BreadcrumbsBundle'>Breadcrumbs Bundle</a> enabled: </a>You can see it in action in the previous link (Paginator Bundle)</li>
-    <li><a href="{{path('tmce_sample')}}">stfalcon/TinymceBundle: </a>WYSIWYG Editor for your forms</li>
-    <li><a href="https://github.com/raulfraile/LadybugBundle">LadyBugBundle: </a>An improved PHP Dumper</li>
-    <li><a href="https://github.com/xsolve-pl/xsolve-cookie-acknowledgement-bundle">Cookies Acknowledgement Bundle: An improved PHP Dumper</a>  This bundle provides information about an cookies usage, which is forced by European Union by so-called EU cookie law.</li>
-    <li><a href="https://sonata-project.org/bundles/seo/master/doc/index.html">Sonata SEO Bundle</a> For SEO site optimization.</li>
-    <li><a href="https://github.com/KnpLabs/KnpMenu">KnpMenu</a>, The KnpMenu library provides object oriented menus.</li>
-    
-    
+
+    <br/><br/>
+
+    <li><a href="https://github.com/FriendsOfSymfony/FOSUserBundle">FOSUserBundle</a> - FOSUserBundle provides a flexible framework for user management that aims to handle common tasks such as user registration and password retrieval.</li>
+    <li><a href="https://github.com/javiereguiluz/EasyAdminBundle">EasyAdminBundle</a> - EasyAdminBundle lets you create administration backends for Symfony applications with unprecedented simplicity.</li>
+    <li><a href="https://github.com/KnpLabs/KnpPaginatorBundle">KnpPaginatorBundle</a> - KnpPaginatorBundle is a friendly Symfony paginator to paginate everything.</li>
+    <li><a href="https://github.com/whiteoctober/BreadcrumbsBundle">WhiteOctoberBreadcrumbsBundle</a> - WhiteOctoberBreadcrumbsBundle provides a easy way to create bread crumbs.</li>
+    <li><a href="https://github.com/stfalcon/TinymceBundle">StfalconTinymceBundle</a> - StfalconTinymceBundle makes it very easy to add the TinyMCE WYSIWYG editor to your Symfony project.</li>
+    <li><a href="https://github.com/raulfraile/LadybugBundle">RaulFraileLadybugBundle</a> - RaulFraileLadybugBundle provides an easy and extensible var_dump/print_r replacement for Symfony projects, both in controllers or Twig templates.</li>
+    <li><a href="https://github.com/xsolve-pl/xsolve-cookie-acknowledgement-bundle">XsolveCookieAcknowledgementBundle</a> - XsolveCookieAcknowledgementBundle provides information about an cookies usage, which is forced by European Union by so-called EU cookie law.</li>
+    <li><a href="https://github.com/sonata-project/SonataSeoBundle">SonataSeoBundle</a> - SonataSeoBundle provides a Site and Page management through container and block services.</li>
+    <li><a href="https://github.com/KnpLabs/KnpMenuBundle">KnpMenuBundle</a> - KnpMenuBundle integrates the KnpMenu PHP library with Symfony. This means easy-to-implement and feature-rich menus in Symfony applications.</li>
+    <li><a href="https://github.com/LeaseWeb/LswMemcacheBundle">LswMemcacheBundle</a> - LswMemcacheBundle provides Memcache integration into Symfony and Doctrine for session storage and caching.</li>
+    <li><a href="https://github.com/sonata-project/SonataIntlBundle">SonataIntlBundle</a> - SonataIntlBundle provides text and date formatting depends on locale.</li>
+    <li><a href="https://github.com/miguel250/MZMailChimpBundle">MZMailChimpBundle</a> - MZMailChimpBundle is a bundle which integrates MailChimp API with Symfony Apps easily.</li>
+    <li><a href="https://github.com/hwi/HWIOAuthBundle">HWIOAuthBundle</a> - HWIOAuthBundle adds support for authenticating users via OAuth1.0a or OAuth2 in Symfony2 with more of 40 different providers like Facebook, Twitter, Google...</li>
     
 </ul>
+
+    <p>Also, you can read all the features availables in our <a href="https://github.com/Emergya/SymfonyZero#features">documentation</a>.</p>
+
 </div>
 <div style='clear:both'></div>
 {%endblock%}

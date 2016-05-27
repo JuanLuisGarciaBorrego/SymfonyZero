@@ -92,8 +92,6 @@ knp_paginator:
         
 white_october_breadcrumbs: ~
 
-
-
 stfalcon_tinymce:
         include_jquery: true
         tinymce_jquery: true
@@ -180,3 +178,9 @@ sonata_intl:
         locales:
             en_UK: Europe/London
             fr:    Europe/Paris
+
+mz_mail_chimp:
+    api_key: 000 #Mailchimp API Key
+    default_list: 000 #default list id
+    ssl: true #option to use http or https
+
