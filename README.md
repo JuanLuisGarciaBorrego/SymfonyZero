@@ -112,7 +112,8 @@ SymfonyZero has available a pre-configured third party bundles to give a solutio
 *  [KnpMenuBundle](https://github.com/KnpLabs/KnpMenuBundle) - KnpMenuBundle integrates the KnpMenu PHP library with Symfony. This means easy-to-implement and feature-rich menus in Symfony applications.
 *  [LswMemcacheBundle](https://github.com/LeaseWeb/LswMemcacheBundle) - LswMemcacheBundle provides Memcache integration into Symfony and Doctrine for session storage and caching.
 *  [SonataIntlBundle](https://github.com/sonata-project/SonataIntlBundle) - SonataIntlBundle provides text and date formatting depends on locale.
-  
+*  [MZMailChimpBundle](https://github.com/miguel250/MZMailChimpBundle) - MZMailChimpBundle is a bundle which integrates MailChimp API with Symfony Apps easily.
+*  [HWIOAuthBundle](https://github.com/hwi/HWIOAuthBundle) - HWIOAuthBundle adds support for authenticating users via OAuth1.0a or OAuth2 in Symfony2 with more of 40 different providers like Facebook, Twitter, Google...
 
 **Common Sections and Funcionallity**
  
