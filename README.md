@@ -11,11 +11,11 @@ If you detect an error, you know how to improve it or you have an idea about thi
 
 # Requirements
 
-SymfonyZero uses Symfony 3.0.2 version (although you can change it easily), so you need to keep in your mind these requirements:
+SymfonyZero uses the last LTS version: Symfony 2.8.6 (although you can change it easily), so you need to keep in your mind these requirements:
 
 **Mandatory**
  ```
-* PHP needs to be a minimum version of PHP 5.5.9
+* PHP needs to be a minimum version of PHP 5.3.9
 * JSON needs to be enabled
 * ctype needs to be enabled
 * Your php.ini needs to have the date.timezone setting
@@ -39,6 +39,24 @@ POSIX needs to be enabled (only on *nix)
  ```
  
  If you change the Symfony version, these requirements could change. In this case you must visit the [oficial site] to check them.
+ 
+ SymfonyZero provides integration with Memcache, so you need to install previously some dependencies:
+ 
+ ```sh
+ apt-get install memcached php5-memcache
+ ```
+ 
+ If you don't want to use memcache, you can disable the bundle before the setup process. To do this, remove in composer.json the line:
+ 
+ ```sh
+ "leaseweb/memcache-bundle": "^2.1",
+ ```
+ 
+ and in the file _app/AppKernel.php_ the line:
+ 
+ ```sh
+ new Lsw\MemcacheBundle\LswMemcacheBundle(),
+ ```
 
 # Setup
  
@@ -92,7 +110,10 @@ SymfonyZero has available a pre-configured third party bundles to give a solutio
 *  [XsolveCookieAcknowledgementBundle](https://github.com/xsolve-pl/xsolve-cookie-acknowledgement-bundle) - XsolveCookieAcknowledgementBundle provides information about an cookies usage, which is forced by European Union by so-called EU cookie law.
 *  [SonataSeoBundle](https://github.com/sonata-project/SonataSeoBundle) - SonataSeoBundle provides a Site and Page management through container and block services.
 *  [KnpMenuBundle](https://github.com/KnpLabs/KnpMenuBundle) - KnpMenuBundle integrates the KnpMenu PHP library with Symfony. This means easy-to-implement and feature-rich menus in Symfony applications.
-  
+*  [LswMemcacheBundle](https://github.com/LeaseWeb/LswMemcacheBundle) - LswMemcacheBundle provides Memcache integration into Symfony and Doctrine for session storage and caching.
+*  [SonataIntlBundle](https://github.com/sonata-project/SonataIntlBundle) - SonataIntlBundle provides text and date formatting depends on locale.
+*  [MZMailChimpBundle](https://github.com/miguel250/MZMailChimpBundle) - MZMailChimpBundle is a bundle which integrates MailChimp API with Symfony Apps easily.
+*  [HWIOAuthBundle](https://github.com/hwi/HWIOAuthBundle) - HWIOAuthBundle adds support for authenticating users via OAuth1.0a or OAuth2 in Symfony2 with more of 40 different providers like Facebook, Twitter, Google...
 
 **Common Sections and Funcionallity**
  
@@ -132,7 +153,7 @@ Extracted of the [official repository of Symfony](https://github.com/symfony/sym
 If you want to change the *Symfony version* you must edit the file _composer.json_, specifically the line:
 
 ```
-"symfony/symfony": "3.0.*",
+"symfony/symfony": "2.8.*",
 ```
 
 Changing this for the version you prefer, when you running _composer install_, you will get that version of Symfony. Remember that some bundles could work differently for other versions of Symfony. Also, changing that file you can change the version of the bundle you prefer, for example, if you want to change the version of KnpPaginatorBundle, you have to change next line:
@@ -199,6 +220,8 @@ $ php bin/console doctrine:fixtures:load
 Once you run this command, you can log in the application using one of these users you can find in the _LoadUserData.php_ class. For security reasons remember delete these useres before your application will be in a production environment.
 
 In the previous section, you can find all the links for the official documentation for each bundle. Check it if you want to know all the posibilities to customize your application.
+
+By default, SymfonyZero provides a base repository and base manager which the most used functions like create an entity, find by id, update an entity... And a repository and manager classes like an examples (for User entity). It's a good practice if you follow this estructure when you create new entities. You can configure these files in _src/AppBundle/Resources/config_.
 
 With little knowledge of Symfony you will be able to use all the SymfonyZero posibilities and you will increase improve the development of your own applications.
  
