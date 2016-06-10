@@ -32,6 +32,13 @@ class Builder implements ContainerAwareInterface
 //            'routeParameters' => array('id' => $blog->getId())
         ));
         
+        //Link a EasyAdmin (en el caso de contener el rol ROLE_ADMIN)
+        if ($this->container->get('security.context')->isGranted('ROLE_ADMIN')) {
+        	$menu->addChild('EasyAdmin', array(
+        			'route' => 'easyadmin'
+        	));
+        }
+        
         //Login / Logout
         $user = $this->container->get('security.context')->getToken()->getUser();
         if (is_object($user) && get_class($user) == 'AppBundle\Entity\User') {
@@ -43,7 +50,6 @@ class Builder implements ContainerAwareInterface
         			'route' => 'fos_user_security_login',
         	));
         }
-        
 
 //        // create another menu item
 //        $menu->addChild('About Me', array('route' => 'about'));
