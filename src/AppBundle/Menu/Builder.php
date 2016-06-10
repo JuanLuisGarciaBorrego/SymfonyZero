@@ -31,6 +31,19 @@ class Builder implements ContainerAwareInterface
             'route' => 'contact',
 //            'routeParameters' => array('id' => $blog->getId())
         ));
+        
+        //Login / Logout
+        $user = $this->container->get('security.context')->getToken()->getUser();
+        if (is_object($user) && get_class($user) == 'AppBundle\Entity\User') {
+        	$menu->addChild('Logout ' . $user->getUserName(), array(
+        			'route' => 'fos_user_security_logout',
+        	));
+        } else {
+        	$menu->addChild('Login', array(
+        			'route' => 'fos_user_security_login',
+        	));
+        }
+        
 
 //        // create another menu item
 //        $menu->addChild('About Me', array('route' => 'about'));
