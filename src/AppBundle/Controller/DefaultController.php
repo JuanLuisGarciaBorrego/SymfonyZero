@@ -48,9 +48,15 @@ class DefaultController extends Controller
         $query = $em->createQuery($dql);
 
         $paginator = $this->get('knp_paginator');
+        
+        $sampleData=array();
+        for($i=0;$i<500;$i++){
+            $sampleData[]=array("username"=>"user_".$i);
+        }
+        
         $pagination = $paginator->paginate(
-        //$sampleData, /* query NOT result */
-            $query,
+            $sampleData, /* query NOT result */
+           // $query,
             $request->query->getInt('page', 1)/*page number*/,
             10/*limit per page*/
         );
