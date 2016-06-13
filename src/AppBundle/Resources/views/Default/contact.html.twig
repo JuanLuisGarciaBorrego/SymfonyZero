@@ -6,10 +6,26 @@
 
     <div id="contact">
         Using this form you will send an email, obviously is not functional, is just for demonstration purposes.
-
-        {{ form_widget(form) }}
-
-        <input type="submit" value="Send Email"/>
+        <p/>
+        {{ form_start(form) }}
+        <div style="clear:both">
+            <div style="float:left;width:100px">{{form_label(form.email)}}</div>            
+            <div style="float:left;width:200px">{{form_widget(form.email)}}</div>
+        </div>
+        <div style="clear:both">
+            <div style="float:left;width:100px">{{form_label(form.subject)}}</div>            
+            <div style="float:left;width:200px">{{form_widget(form.subject)}}</div>
+        </div>
+        <div style="clear:both">
+            <div style="float:left;width:100px">{{form_label(form.message)}}</div>            
+            <div style="float:left;width:240px;">
+                {{form_widget(form.message)}}
+                <br/>
+                <input type="submit" value="Send Email"/>
+                
+            </div>
+        </div>                
+        {{ form_end(form) }}
 
     </div>
 
