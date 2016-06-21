@@ -3,10 +3,11 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Form\Type\ContactType;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+
 
 class DefaultController extends Controller
 {
@@ -15,6 +16,8 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
+        $breadcrumbs = $this->get('white_october_breadcrumbs');
+        $breadcrumbs->addItem('Home', $this->get('router')->generate('homepage'));        
         return $this->render('AppBundle:Default:index.html.twig');
     }
 
@@ -23,6 +26,10 @@ class DefaultController extends Controller
      */
     public function includedBundlesAction()
     {
+        $breadcrumbs = $this->get('white_october_breadcrumbs');
+        $breadcrumbs->addItem('Home', $this->get('router')->generate('homepage'));
+        $breadcrumbs->addItem('Included bundles');
+        
         return $this->render('AppBundle:Default:demo.functions.html.twig');
     }
 
@@ -31,6 +38,9 @@ class DefaultController extends Controller
      */
     public function aboutAction()
     {
+        $breadcrumbs = $this->get('white_october_breadcrumbs');
+        $breadcrumbs->addItem('Home', $this->get('router')->generate('homepage'));
+        $breadcrumbs->addItem('About');
         return $this->render('AppBundle:Default:about.html.twig');
     }
 
@@ -41,27 +51,33 @@ class DefaultController extends Controller
     {
         $breadcrumbs = $this->get('white_october_breadcrumbs');
         $breadcrumbs->addItem('Home', $this->get('router')->generate('homepage'));
-        $breadcrumbs->addItem('Sample section');
+        $breadcrumbs->addItem('Pagination example');
 
-        $em = $this->get('doctrine.orm.entity_manager');
-        $dql = 'SELECT a FROM AppBundle:User a';
-        $query = $em->createQuery($dql);
+        //Uncomment for a real query
+        //$em = $this->get('doctrine.orm.entity_manager');
+        //$dql = 'SELECT a FROM AppBundle:User a';
+        //$query = $em->createQuery($dql);
 
-        $paginator = $this->get('knp_paginator');
-        
-        $sampleData=array();
-        for($i=0;$i<500;$i++){
-            $sampleData[]=array("username"=>"user_".$i);
-        }
+        $limit=10;
+        $paginator = $this->get('knp_paginator');                
+        $page=$request->query->getInt('page', 1);
         
         $pagination = $paginator->paginate(
-            $sampleData, /* query NOT result */
-           // $query,
-            $request->query->getInt('page', 1)/*page number*/,
-            10/*limit per page*/
+            $this->getFakeData(), ///*Uncomment for a real query*/  $query,
+            $page/*page number*/,
+            $limit /*limit per page*/
         );
 
         return $this->render('AppBundle:Default:paginator.html.twig', array('pagination' => $pagination));
+    }
+    
+    
+    private function getFakeData(){
+        $sampleData=array();
+        for($i=0;$i<500;$i++)
+            $sampleData[]=array("username"=>"user_".$i);
+        
+        return $sampleData;
     }
 
     /**
@@ -82,6 +98,10 @@ class DefaultController extends Controller
      */
     public function contactAction(Request $request)
     { 
+        $breadcrumbs = $this->get('white_october_breadcrumbs');
+        $breadcrumbs->addItem('Home', $this->get('router')->generate('homepage'));
+        $breadcrumbs->addItem('Contact');
+        
         $form = $this->createForm(ContactType::class, ['method' => 'POST']);
         $form->handleRequest($request);
 
