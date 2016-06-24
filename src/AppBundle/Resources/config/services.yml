@@ -6,3 +6,7 @@ services:
     symfonyzero.email:
         class:  AppBundle\Services\Email
         arguments: ['@swiftmailer.mailer', '@templating', '%mailer_user%']
+    symfonyzero.provider.oauth:
+        class:  AppBundle\Security\FOSUBUserProvider
+        arguments: ['@fos_user.user_manager', { google: google_id }]
+            

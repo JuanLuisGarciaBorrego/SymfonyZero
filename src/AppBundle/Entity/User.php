@@ -18,6 +18,14 @@ class User extends BaseUser
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+    
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="google_id", type="string", nullable=true)
+     */
+    private $google_id;
 
     public function __construct()
     {
@@ -40,5 +48,16 @@ class User extends BaseUser
     public function getCredentialsExpireAt()
     {
         return $this->credentialsExpireAt;
+    }
+    
+    public function getGoogleId()
+    {
+    	return $this->google_id;
+    }
+    
+    public function setGoogleId($google_id)
+    {
+    	$this->google_id = $google_id;
+    	return $this;
     }
 }

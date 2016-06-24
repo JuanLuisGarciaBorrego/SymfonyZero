@@ -184,3 +184,21 @@ mz_mail_chimp:
     default_list: 000 #default list id
     ssl: true #option to use http or https
 
+hwi_oauth:
+    firewall_names: [main]
+    connect:
+        confirmation: true
+        
+    resource_owners:
+        google:
+            type: google
+            client_id: 391171632826-fe28t6v9ep5egijpaofbn075d5uhbom9.apps.googleusercontent.com
+            client_secret: MHr5h1cEUSngUBsavhiLqDqs
+            scope: "profile email" 
+    fosub:
+        # try 30 times to check if a username is available (foo, foo1, foo2 etc)
+        username_iterations: 30
+
+        # mapping between resource owners (see below) and properties
+        properties:
+            google: google_id 

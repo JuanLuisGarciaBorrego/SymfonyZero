@@ -14,11 +14,19 @@ security:
 
    firewalls:
         main:
-            pattern: ^/
             form_login:
                 provider: fos_userbundle
                 csrf_token_generator: security.csrf.token_manager
-
+            anonymous: true
+            oauth:
+                resource_owners:
+                    google: "/login_google/check-google"
+                login_path: /login_google
+                use_forward: false
+                failure_path: /login_google
+                oauth_user_provider:
+                    #service: hwi_oauth.user.provider.fosub_bridge
+                    service: symfonyzero.provider.oauth
             logout:       true
             anonymous:    true
             switch_user:  true
