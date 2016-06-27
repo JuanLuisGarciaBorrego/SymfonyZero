@@ -83,24 +83,13 @@ class FOSUBUserProvider implements UserProviderInterface, AccountConnectorInterf
      */
     public function loadUserByOAuthUserResponse(UserResponseInterface $response)
     {
-//         $username = $response->getUsername();
-
-//         $user = $this->userManager->findUserBy(array($this->getProperty($response) => $username));
-        
-//         //Si no existe el usuario que ha introducido su cuenta externa...
-//         if (null === $user || null === $username) {
-//             //throw new AccountNotLinkedException(sprintf("User '%s' not found.", $username));
-//             //En lugar de lanzar una excepción, crear el usuario automáticamente
-//             print_r($response);die;
-            
-            
-//         }
-
-//         return $user;
     	//Obtención de datos desde Response otorgado por el proveedor de identidad
-    	$userId = $response->getNickname();
-    	$user = $this->userManager->findUserBy(array($this->getProperty($response) => $userId));
+    	//La comprobación se rige por el userId. En el caso de Google, el userId será el email 
+    	//$userId = $response->getNickname();
     	$email = $response->getEmail();
+    	$userId = $email;
+    	$user = $this->userManager->findUserBy(array($this->getProperty($response) => $userId));
+    	
     	$username = $response->getNickname() ?: $response->getRealName();
     	
     	//Si no existe usuario con el username pasado...
