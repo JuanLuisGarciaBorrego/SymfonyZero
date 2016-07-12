@@ -36,10 +36,8 @@
         "xsolve-pl/xsolve-cookie-acknowledgement-bundle": "1.0.*",
         "sonata-project/seo-bundle": "^2.0",
         "knplabs/knp-menu-bundle": "^2.0",
-        "leaseweb/memcache-bundle": "^2.1",
         "sonata-project/intl-bundle": "^2.2",
         "hwi/oauth-bundle": "^0.4.1",
-        "mlpz/mailchimp-bundle": "dev-master",
         "symfony/assetic-bundle": "^2.8"
     },
     "require-dev": {

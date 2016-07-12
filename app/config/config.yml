@@ -179,11 +179,6 @@ sonata_intl:
             en_UK: Europe/London
             fr:    Europe/Paris
 
-mz_mail_chimp:
-    api_key: 000 #Mailchimp API Key
-    default_list: 000 #default list id
-    ssl: true #option to use http or https
-
 hwi_oauth:
     firewall_names: [main]
     connect:
