@@ -1,0 +1,3 @@
+emergya_server_info_board_homepage:
+    path:     /
+    defaults: { _controller: EmergyaServerInfoBoardBundle:InfoBoard:index }

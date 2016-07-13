@@ -11,8 +11,8 @@ class Builder implements ContainerAwareInterface
     use ContainerAwareTrait;
 
     public function mainMenu(FactoryInterface $factory, array $options)
-    {        
-        
+    {
+
         $menu = $factory->createItem('root');
         $menu->addChild('Home', array('route' => 'homepage','class'=>'testClass'));
         $menu->addChild('Included Bundles', array(
@@ -20,18 +20,21 @@ class Builder implements ContainerAwareInterface
         ));
         $menu->addChild('Contact', array(
             'route' => 'contact',
-        ));        
+        ));
         $menu->addChild('About', array(
             'route' => 'about',
         ));
-        
+        $menu->addChild('Server info', array(
+            'uri' => 'server-info',
+        ));
+
         if(isset($options['admin']) && $options['admin']==1){
             $menu->addChild('EasyAdmin ', array(
                 'route' => 'admin',
             ));
         }
 
-        
+
         //Login / Logout (Login normal / Login GOOGLE)
         $user = $this->container->get('security.context')->getToken()->getUser();
         if (is_object($user) && get_class($user) == 'AppBundle\Entity\User') {
