@@ -87,7 +87,6 @@
     text-indent: 20px;
     line-height: 40px;
     margin-right: 30px;
-    border-radius: 0 10px 10px 0;
 }
 
 #sidebar-wrapper ul li.current {
@@ -116,19 +115,10 @@
     text-decoration: none;
 }
 
-#sidebar-wrapper > .sidebar-brand {
-    height: 65px;
-    font-size: 18px;
-    line-height: 60px;
-}
-
-#sidebar-wrapper > .sidebar-brand a {
-    color: #999999;
-}
-
-#sidebar-wrapper > .sidebar-brand a:hover {
-    color: #fff;
-    background: none;
+#sidebar-wrapper .sidebar-brand {
+    margin-top: 40px;
+    width: 80%;
+    margin-left: 8%;
 }
 
 @media(min-width:768px) {

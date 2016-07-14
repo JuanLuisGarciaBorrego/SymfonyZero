@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
         integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-        {% stylesheets 'css/*' filter='cssrewrite' %}
+        {% stylesheets 'css/*.css' filter='cssrewrite' %}
             <link rel="stylesheet" href="{{ asset_url }}" />
         {% endstylesheets %}
 
@@ -23,25 +23,21 @@
     <div id="wrapper">
         {{ include('default/sidebar.html.twig') }}
 
-        <div id="container-fluid">
-            <div id="welcome">
-                <a href="{{path('homepage')}}"><img src="{{asset("bundles/app/images/emergya.png")}}" alt="Emergya"></a><p/>
-                <h2>SymfonyZero based on  {{ constant('Symfony\\Component\\HttpKernel\\Kernel::VERSION') }}</h2>
+        <div id="container">
+          {% for flash_message in app.session.flashbag.get('info') %}
+            <div class="alert alert-success">
+                <div class="flash-notice">
+                    {{ flash_message }}
+                </div>
             </div>
-
-        <div class="alert alert-success">
-        {% for flash_message in app.session.flashbag.get('info') %}
-            <div class="flash-notice">
-                {{ flash_message }}
-            </div>
-        {% endfor %}
-        </div>
-            {{ wo_render_breadcrumbs() }}
-            {% block body %}
-            {% endblock %}
+          {% endfor %}
+          {{ wo_render_breadcrumbs() }}
+          {% block body %}
+          {% endblock %}
         </div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
     integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 

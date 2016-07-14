@@ -1,0 +1,13 @@
+.icon-header{
+  text-align: center;
+  font-size: 100px !important;
+}
+
+.main-column p {
+  padding: 0 60px;
+  font-size: 20px;
+}
+
+.jumbotron p {
+  margin-bottom: 5px;
+}

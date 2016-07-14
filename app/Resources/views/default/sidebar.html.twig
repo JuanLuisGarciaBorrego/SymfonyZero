@@ -5,4 +5,5 @@
     {%set isAdmin =  (is_granted('ROLE_ADMIN'))?1:0%}
     {% set menu = knp_menu_get('AppBundle:Builder:mainMenu',[],{'admin':isAdmin}) %}
     {{ knp_menu_render(menu) }}
+    <a href="{{path('homepage')}}"><img class="sidebar-brand" src="{{asset("bundles/app/images/emergya.png")}}" alt="Emergya"></a><p/>
 </div>
