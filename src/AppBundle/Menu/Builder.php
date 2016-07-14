@@ -24,9 +24,6 @@ class Builder implements ContainerAwareInterface
         $menu->addChild('About', array(
             'route' => 'about',
         ));
-        $menu->addChild('Server info', array(
-            'uri' => 'server-info',
-        ));
 
         if(isset($options['admin']) && $options['admin']==1){
             $menu->addChild('EasyAdmin ', array(
