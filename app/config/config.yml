@@ -73,12 +73,12 @@ fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
     user_class: AppBundle\Entity\User
-    
-    
+
+
 easy_admin:
     entities:
         - AppBundle\Entity\User
-        
+
 knp_paginator:
     page_range: 5                      # default page range used in pagination control
     default_options:
@@ -89,7 +89,7 @@ knp_paginator:
     template:
         pagination: KnpPaginatorBundle:Pagination:sliding.html.twig     # sliding pagination controls template
         sortable: KnpPaginatorBundle:Pagination:sortable_link.html.twig # sort link template
-        
+
 white_october_breadcrumbs: ~
 
 stfalcon_tinymce:
@@ -109,13 +109,13 @@ stfalcon_tinymce:
                      - "emoticons template paste textcolor"
                  toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
                  toolbar2: "print preview media | forecolor backcolor emoticons | stfalcon | example"
-                 
+
 
 raul_fraile_ladybug:
     theme: modern # select the theme: base, modern or custom themes
     expanded: false # true to expand all the variables tree by default
     silenced: false # true to ignore all ladybug calls
-    
+
 xsolve_cookie_acknowledgement:
     response_injection: true # default true
     template: ::default/custom_cookies_message.html.twig
@@ -125,12 +125,12 @@ sonata_seo:
     encoding:         UTF-8
     page:
         default: sonata.seo.page.default
-        title:            Symfony Zero. 
+        title:            Symfony Zero.
         default:          sonata.seo.page.default
         metas:
             name:
                 keywords:             Symfony Zero
-                description:          SymfonyZero is a free fully functional kickstarter edition. You can use it as a base for your Symfony web projects with a typical architecture. SymfonyZero includes the most common bundles preconfigured and the usual sections of a website. 
+                description:          SymfonyZero is a free fully functional kickstarter edition. You can use it as a base for your Symfony web projects with a typical architecture. SymfonyZero includes the most common bundles preconfigured and the usual sections of a website.
                 robots:               index, follow
 
             property:
@@ -141,7 +141,7 @@ sonata_seo:
                 # Open Graph information
                 # see http://developers.facebook.com/docs/opengraphprotocol/#types or http://ogp.me/
                 'og:site_name':       Symfony Zero
-                'og:description':     SymfonyZero is a free fully functional kickstarter edition. You can use it as a base for your Symfony web projects with a typical architecture. SymfonyZero includes the most common bundles preconfigured and the usual sections of a website. 
+                'og:description':     SymfonyZero is a free fully functional kickstarter edition. You can use it as a base for your Symfony web projects with a typical architecture. SymfonyZero includes the most common bundles preconfigured and the usual sections of a website.
 
             http-equiv:
                 'Content-Type':         text/html; charset=utf-8
@@ -154,7 +154,7 @@ sonata_seo:
             'xmlns':              http://www.w3.org/1999/xhtml
             'xmlns:og':           http://opengraphprotocol.org/schema/
             #'xmlns:fb':           "http://www.facebook.com/2008/fbml"
-            
+
 knp_menu:
     # use "twig: false" to disable the Twig extension and the TwigRenderer
     twig:
@@ -183,17 +183,23 @@ hwi_oauth:
     firewall_names: [main]
     connect:
         confirmation: true
-        
+
     resource_owners:
         google:
             type: google
             client_id: 391171632826-fe28t6v9ep5egijpaofbn075d5uhbom9.apps.googleusercontent.com
             client_secret: MHr5h1cEUSngUBsavhiLqDqs
-            scope: "profile email" 
+            scope: "profile email"
     fosub:
         # try 30 times to check if a username is available (foo, foo1, foo2 etc)
         username_iterations: 30
 
         # mapping between resource owners (see below) and properties
         properties:
-            google: google_id 
+            google: google_id
+
+assetic:
+    debug:          '%kernel.debug%'
+    use_controller: '%kernel.debug%'
+    filters:
+        cssrewrite: ~

@@ -1,0 +1,8 @@
+<!-- Sidebar -->
+<div id="sidebar-wrapper">
+    <h2>Symfony<span class="title-zero">Zero</span></h2>
+    <div class="sub-title">based on  {{ constant('Symfony\\Component\\HttpKernel\\Kernel::VERSION') }}</div>
+    {%set isAdmin =  (is_granted('ROLE_ADMIN'))?1:0%}
+    {% set menu = knp_menu_get('AppBundle:Builder:mainMenu',[],{'admin':isAdmin}) %}
+    {{ knp_menu_render(menu) }}
+</div>
