@@ -19,22 +19,19 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 </head>
 <body>
+    {{ include('default/navbar.html.twig') }}
 
-    <div id="wrapper">
-        {{ include('default/sidebar.html.twig') }}
-
-        <div id="container">
-          {% for flash_message in app.session.flashbag.get('info') %}
-            <div class="alert alert-success">
-                <div class="flash-notice">
-                    {{ flash_message }}
-                </div>
+    <div id="container">
+      {% for flash_message in app.session.flashbag.get('info') %}
+        <div class="alert alert-success">
+            <div class="flash-notice">
+                {{ flash_message }}
             </div>
-          {% endfor %}
-          {{ wo_render_breadcrumbs() }}
-          {% block body %}
-          {% endblock %}
         </div>
+      {% endfor %}
+      {{ wo_render_breadcrumbs() }}
+      {% block body %}
+      {% endblock %}
     </div>
 
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>

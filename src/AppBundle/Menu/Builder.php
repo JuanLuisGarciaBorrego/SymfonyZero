@@ -14,6 +14,7 @@ class Builder implements ContainerAwareInterface
     {
 
         $menu = $factory->createItem('root');
+
         $menu->addChild('Home', array('route' => 'homepage','class'=>'testClass'));
         $menu->addChild('Included Bundles', array(
             'route' => 'included-bundles',
@@ -39,15 +40,14 @@ class Builder implements ContainerAwareInterface
         			'route' => 'fos_user_security_logout',
         	));
         } else {
-        	$menu->addChild('Login', array(
-        			'route' => 'fos_user_security_login',
-        	));
         	$menu->addChild('Login with Google account', array(
         			'route' => 'hwi_oauth_service_redirect',
         			'routeParameters' => array('service' => 'google')
         	));
         }
 
+        //set ul classes
+        $menu->setChildrenAttribute('class', 'nav navbar-nav');
         return $menu;
     }
 }
