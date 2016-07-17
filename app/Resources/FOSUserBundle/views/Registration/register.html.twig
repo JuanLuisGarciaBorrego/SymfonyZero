@@ -1,0 +1,9 @@
+{% extends "base.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block body %}
+  <div class="container register-container">
+    {% include "FOSUserBundle:Registration:register_content.html.twig" %}
+  </div>
+{% endblock body %}
