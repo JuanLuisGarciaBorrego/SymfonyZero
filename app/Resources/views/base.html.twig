@@ -12,7 +12,10 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
         integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-        {% stylesheets 'css/*.css' filter='cssrewrite' %}
+        {% stylesheets  filter='scssphp' output="css/app.css"
+          'css/*.css'
+          'scss/app.scss'
+         %}
             <link rel="stylesheet" href="{{ asset_url }}" />
         {% endstylesheets %}
 
@@ -29,7 +32,7 @@
             </div>
         </div>
       {% endfor %}
-      {{ wo_render_breadcrumbs() }}
+      {# wo_render_breadcrumbs() #}
       {% block body %}
       {% endblock %}
     </div>

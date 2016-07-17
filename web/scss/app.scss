@@ -1,0 +1,7 @@
+@import "variables";
+@import "navbar";
+@import "index";
+
+.container {
+  max-width: $container-max-width;
+}

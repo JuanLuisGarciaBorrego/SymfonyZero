@@ -4,26 +4,25 @@
 
 {% block body %}
 
-    
-   Login form (sample user: <b>user:user</b>)
-   <p>
-   {% if error %}
-    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+<div class="container">
+  <p>
+    {% if error %}
+      <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
-<p>
-  <form action="{{ path("fos_user_security_check") }}" method="post">
-    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-    <div class="input-group">
-        <span class="input-group-addon" id="login_usuario"></span>
-        <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" class="form-control" placeholder="Your username" aria-describedby="login_usuario"/>
-    </div>
-    <div class="input-group">
-        <span class="input-group-addon" id="login_contrasena"></span>
-        <input type="password" id="password" name="_password" required="required" class="form-control" placeholder="Your password" aria-describedby="login_contrasena"/>
-    </div>
-    <br/>
-    <button type="submit" class="btn btn-primary pull-right" id="_submit" name="_submit" value="Login" >Login</button>
-  </form>
+  </p>
 
+  <form class="form-signin" action="{{ path("fos_user_security_check") }}" method="post">
+    <h2 class="form-signin-heading">Please sign in (sample user: <b>user:user</b>)</h2>
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+
+    <label for="username" class="sr-only">Email address</label>
+    <input type="text" id="username" name="_username" value="{{ last_username }}" class="form-control" placeholder="Username" required autofocus>
+
+    <label for="password" class="sr-only">Password</label>
+    <input type="password" id="password" name="_password" class="form-control" placeholder="Password" required>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+  </form>
+</div>
 
 {% endblock body %}

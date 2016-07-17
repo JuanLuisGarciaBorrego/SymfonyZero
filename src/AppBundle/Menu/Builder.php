@@ -39,12 +39,12 @@ class Builder implements ContainerAwareInterface
         	$menu->addChild('Logout (' . $user->getUserName().")", array(
         			'route' => 'fos_user_security_logout',
         	));
-        } else {
+        } /*else {
         	$menu->addChild('Login with Google account', array(
         			'route' => 'hwi_oauth_service_redirect',
         			'routeParameters' => array('service' => 'google')
         	));
-        }
+        }*/
 
         //set ul classes
         $menu->setChildrenAttribute('class', 'nav navbar-nav');
