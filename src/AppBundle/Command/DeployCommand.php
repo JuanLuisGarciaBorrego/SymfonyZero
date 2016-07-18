@@ -41,7 +41,7 @@ class DeployCommand extends Command
 
     protected function runProccess($command)
     {
-      $this->output->writeln('<comment>Running command: '.$command.'<comment>');
+      $this->output->writeln('<comment>Running command: '.$command.'</comment>');
       $process = new Process($command);
       $process->run();
 
@@ -51,18 +51,18 @@ class DeployCommand extends Command
       }
 
       $this->output->write($process->getOutput());
-      $this->output->writeln('<info>Finished command: '.$command.'<info>');
+      $this->output->writeln('<info>Finished command: '.$command.'</info>');
       $this->output->writeln('');
     }
 
     protected function runCommand($command, $arguments)
     {
-      $this->output->writeln('<comment>Running command: '.$command.'<comment>');
+      $this->output->writeln('<comment>Running command: '.$command.'</comment>');
       $applicationCommand = $this->getApplication()->find($command);
       $input = new ArrayInput($arguments);
 
       $applicationCommand->run($input, $this->output);
-      $this->output->writeln('<info>Finished command: '.$command.'<info>');
+      $this->output->writeln('<info>Finished command: '.$command.'</info>');
       $this->output->writeln('');
     }
 }
