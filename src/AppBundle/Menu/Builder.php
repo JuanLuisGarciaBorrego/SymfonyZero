@@ -32,20 +32,6 @@ class Builder implements ContainerAwareInterface
             ));
         }
 
-
-        //Login / Logout (Login normal / Login GOOGLE)
-        $user = $this->container->get('security.context')->getToken()->getUser();
-        if (is_object($user) && get_class($user) == 'AppBundle\Entity\User') {
-        	$menu->addChild('Logout (' . $user->getUserName().")", array(
-        			'route' => 'fos_user_security_logout',
-        	));
-        } /*else {
-        	$menu->addChild('Login with Google account', array(
-        			'route' => 'hwi_oauth_service_redirect',
-        			'routeParameters' => array('service' => 'google')
-        	));
-        }*/
-
         //set ul classes
         $menu->setChildrenAttribute('class', 'nav navbar-nav');
         return $menu;

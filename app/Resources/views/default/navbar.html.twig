@@ -17,9 +17,13 @@
       {{ knp_menu_render(menu, {'currentClass': 'active'}) }}
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href={{ path('fos_user_security_login') }} class="navbar-button"><button class="btn btn-default">Sign In</button></a></li>
-        <li><a href={{ path('fos_user_registration_register') }} class="navbar-button"><button class="btn btn-success">Sign Up</button></a></li>
-      </ul-->
+        {% if not app.user %}
+          <li><a href={{ path('fos_user_security_login') }} class="navbar-button"><button class="btn btn-default">Sign In</button></a></li>
+          <li><a href={{ path('fos_user_registration_register') }} class="navbar-button"><button class="btn btn-success">Sign Up</button></a></li>
+         {% else %}
+          <li><a href={{ path('fos_user_security_logout') }} class="navbar-button"><button class="btn btn-default">Logout({{app.user.username}})</button></a></li>
+         {% endif %}
+      </ul>
     </div>
   </div>
 </nav>

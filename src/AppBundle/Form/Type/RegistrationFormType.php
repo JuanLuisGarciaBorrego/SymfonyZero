@@ -11,16 +11,40 @@ class RegistrationFormType extends BaseType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
       $builder
-          ->add('email', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\EmailType'), array('label' => 'Email', 'translation_domain' => 'FOSUserBundle'))
-          ->add('username', null, array('label' => 'Username', 'translation_domain' => 'FOSUserBundle'))
+          ->add('email', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\EmailType'), array(
+            'label' => 'Email Address',
+            'translation_domain' => 'FOSUserBundle',
+            'attr' => array(
+                'class' => 'form-control'
+            )))
+
+          ->add('username', null, array(
+            'label' => 'Username',
+            'translation_domain' => 'FOSUserBundle',
+            'attr' => array(
+                'class' => 'form-control'
+            )))
+          ->add('name', null, array(
+            'label' => 'Name (custom property)',
+            'translation_domain' => 'FOSUserBundle',
+            'attr' => array(
+                'class' => 'form-control'
+            )))
           ->add('plainPassword', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\RepeatedType'), array(
               'type' => LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\PasswordType'),
               'options' => array('translation_domain' => 'FOSUserBundle'),
-              'first_options' => array('label' => 'Password'),
-              'second_options' => array('label' => 'Repeat Password'),
+              'first_options' => array(
+                  'label' => 'Password',
+                  'attr' => array(
+                    'class' => 'form-control'
+                  )),
+              'second_options' => array(
+                'label' => 'Repeat Password',
+                'attr' => array(
+                    'class' => 'form-control'
+                )),
               'invalid_message' => 'fos_user.password.mismatch',
-          ))
-      ;
+            ));
     }
 
     public function getName()
