@@ -31,12 +31,12 @@ class DeployCommand extends Command
       $this->runProccess('composer install');
       $this->runProccess('composer update');
 
-      $this->runCommand('doctrine:schema:update', array('--force' => true));
+      $this->runCommand('doctrine:schema:update --force');
 
-      $this->runCommand('assetic:dump', array('--env' => 'prod', '--no-debug' => true));
+      $this->runCommand('assetic:dump --env=prod --no-debug');
 
-      $this->runCommand('cache:clear', array());
-      $this->runCommand('cache:clear', array('--env' => 'prod'));
+      $this->runCommand('cache:clear');
+      $this->runCommand('cache:clear --env=prod');
     }
 
     protected function runProccess($command)
@@ -55,14 +55,8 @@ class DeployCommand extends Command
       $this->output->writeln('');
     }
 
-    protected function runCommand($command, $arguments)
+    protected function runCommand($command)
     {
-      $this->output->writeln('<comment>Running command: '.$command.'</comment>');
-      $applicationCommand = $this->getApplication()->find($command);
-      $input = new ArrayInput($arguments);
-
-      $applicationCommand->run($input, $this->output);
-      $this->output->writeln('<info>Finished command: '.$command.'</info>');
-      $this->output->writeln('');
+      $this->runProccess('php bin/console ' . $command);
     }
 }
