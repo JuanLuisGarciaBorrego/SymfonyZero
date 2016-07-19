@@ -21,7 +21,8 @@
           <li><a href={{ path('fos_user_security_login') }} class="navbar-button"><button class="btn btn-default">Sign In</button></a></li>
           <li><a href={{ path('fos_user_registration_register') }} class="navbar-button"><button class="btn btn-success">Sign Up</button></a></li>
          {% else %}
-          <li><a href={{ path('fos_user_security_logout') }} class="navbar-button"><button class="btn btn-default">Logout({{app.user.username}})</button></a></li>
+          <li><a href={{ path('fos_user_profile_show') }} class="navbar-button"><button class="btn btn-success">{{app.user.username}}</button></a></li>
+          <li><a href={{ path('fos_user_security_logout') }} class="navbar-button"><button class="btn btn-default">Logout</button></a></li>
          {% endif %}
       </ul>
     </div>
