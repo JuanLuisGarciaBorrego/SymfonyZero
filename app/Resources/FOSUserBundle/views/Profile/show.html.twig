@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block body %}
+
+<div class="container login-container">
+  <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+    <p>Username: {{ user.username }}</p>
+    <p>Email: {{ user.email }}</p>
+    <p>Name: {{ user.name }}</p>
+    <a href={{ path('fos_user_profile_edit') }} class="btn btn-lg btn-primary btn-block">Edit Profile</a>
+  </div>
+</div>
+
+{% endblock body %}

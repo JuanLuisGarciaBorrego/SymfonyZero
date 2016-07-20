@@ -1,0 +1,13 @@
+{% extends "base.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block body %}
+  <div class="container confirmed-container">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <div class="confirmed-icon"><span class="glyphicon glyphicon-ok success" aria-hidden="true"></span></div>
+      <h3 class="form-signin-heading">Thanks for joining us, {{user.username}}!</h3>
+      <div class="form-signin-subheading">You can now Sign in your account.</div>
+    </div>
+  </div>
+{% endblock body %}

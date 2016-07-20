@@ -1,0 +1,40 @@
+.login-container,
+.register-container,
+.profile-container,
+.edit-profile-container {
+  margin-top: 50px;
+
+  h3 {
+    margin-bottom: 5px;
+  }
+
+  .form-signin-subheading {
+    font-size: 10px;
+    margin-bottom: 20px;
+  }
+
+  .form-control {
+    margin-bottom: 20px;
+  }
+}
+
+.confirmed-container {
+  margin-top: 50px;
+  text-align: center;
+
+  .confirmed-icon {
+    font-size: 80px;
+    line-height: .8;
+    color: $color-success;
+  }
+
+  h3 {
+    margin-bottom: 10px;
+    font-size: 30px;
+  }
+
+  .form-signin-subheading {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+}

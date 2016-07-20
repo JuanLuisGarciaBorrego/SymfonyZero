@@ -1,0 +1,57 @@
+.navbar {
+  background-color: $color-dark;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+
+  border-radius: 0;
+  margin-bottom: 0;
+  border: none;
+
+
+  .navbar-brand {
+    height: 75px;
+    font-size: 22px;
+    line-height: 45px;
+    font-weight: bold;
+
+    color: $color-text-light;
+
+    &:hover {
+      color: $color-text-light;
+    }
+
+    .navbar-brand-zero {
+      color: $color-primary;
+    }
+  }
+
+  .navbar-nav {
+    li {
+      &.active a, &.active a:hover{
+        background-color: $color-primary;
+        color: $color-text-light;
+      }
+
+      a {
+        padding-top: 30px;
+        padding-bottom: 25px;
+
+        color: $color-text-light;
+
+        &:hover {
+          color: $color-primary;
+        }
+
+        &.navbar-button {
+          padding-top: 20px;
+          padding-bottom: 12px;
+          padding-right: 0px;
+          padding-left: 10px;
+
+          button {
+            padding: 10px 20px;
+          }
+        }
+      }
+    }
+  }
+}

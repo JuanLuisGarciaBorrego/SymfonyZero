@@ -5,6 +5,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
@@ -18,7 +19,21 @@ class User extends BaseUser
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
-    
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     *
+     * @Assert\NotBlank(message="Please enter your name.", groups={"Registration", "Profile"})
+     * @Assert\Length(
+     *     min=5,
+     *     max=255,
+     *     minMessage="The name is too short.",
+     *     maxMessage="The name is too long.",
+     *     groups={"Registration", "Profile"}
+     * )
+     */
+    protected $name;
+
 
     /**
      * @var string
@@ -49,15 +64,26 @@ class User extends BaseUser
     {
         return $this->credentialsExpireAt;
     }
-    
+
     public function getGoogleId()
     {
     	return $this->google_id;
     }
-    
+
     public function setGoogleId($google_id)
     {
     	$this->google_id = $google_id;
+    	return $this;
+    }
+
+    public function getName()
+    {
+    	return $this->name;
+    }
+
+    public function setName($name)
+    {
+    	$this->name = $name;
     	return $this;
     }
 }
