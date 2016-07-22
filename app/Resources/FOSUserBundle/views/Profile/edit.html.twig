@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block body %}
+
+<div class="container edit-profile-container">
+  <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+    <h3 class="form-signin-heading">Edit your profile</h3>
+    <div class="form-signin-subheading">All fields are mandatory</div>
+    {{ form_start(form, {'method': 'post', 'action': path('fos_user_profile_edit'), 'attr': {'class': 'fos_user_profile_edit'}}) }}
+        {{ form_widget(form) }}
+        <button class="btn btn-lg btn-success btn-block" type="submit">Confirm</button>
+    {{ form_end(form) }}
+  </div>
+</div>
+
+{% endblock body %}

@@ -5,121 +5,43 @@
         {{ sonata_seo_metadatas() }}
         {{ sonata_seo_link_canonical() }}
         {{ sonata_seo_lang_alternates() }}
-        
+
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome to Symfony Zero preconfigured version!{% endblock %}</title>    
+        <title>{% block title %}Welcome to Symfony Zero preconfigured version!{% endblock %}</title>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+        integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+        {% stylesheets  filter='scssphp' output="css/app.css"
+          'css/*.css'
+          'scss/app.scss'
+         %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 </head>
 <body>
+    {{ include('default/navbar.html.twig') }}
 
-    <div id="wrapper">
-        <div id="container">
-            <div id="welcome">
-                <a href="{{path('homepage')}}"><img src="{{asset("bundles/app/images/emergya.png")}}" alt="Emergya"></a><p/>
-                <h2>SymfonyZero based on  {{ constant('Symfony\\Component\\HttpKernel\\Kernel::VERSION') }}</h2>
-            </div>
-            <div class="menu">
-                {%set isAdmin =  (is_granted('ROLE_ADMIN'))?1:0%}               
-                {% set menu = knp_menu_get('AppBundle:Builder:mainMenu',[],{'admin':isAdmin}) %}
-            {{ knp_menu_render(menu) }}
-            </div>
-            
+    <div id="container">
+      {% for flash_message in app.session.flashbag.get('info') %}
         <div class="alert alert-success">
-        {% for flash_message in app.session.flashbag.get('info') %}
             <div class="flash-notice">
                 {{ flash_message }}
             </div>
-        {% endfor %}
         </div>
-            {{ wo_render_breadcrumbs() }}
-            {% block body %}
-            {% endblock %}
-        </div>
+      {% endfor %}
+      {# wo_render_breadcrumbs() #}
+      {% block body %}
+      {% endblock %}
     </div>
 
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+    integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
-{% block javascripts %}{% endblock %}
-
-{% block stylesheets %}
-<style>
-    body { background: #F5F5F5; font: 14px/1.5 sans-serif; }
-    h1, h2 { line-height: 1.2; margin: 0 0 .5em; }
-    h1 { font-size: 36px; }
-    h2 { font-size: 21px; margin-bottom: 1em; }
-    p { margin: 0 0 1em 0; }
-    a, li { color: #555555; text-decoration:none; }
-    
-    .breadcrum a, li {display: inline-block}
-    
-    a:hover { text-decoration: none; }
-    
-    li a {font-weight: bold; color:#888888}
-    
-    code { background: #F5F5F5; max-width: 100px; padding: 2px 6px; word-wrap: break-word; }
-    #wrapper { background: #FFF; margin: 1em auto; max-width: 800px; width: 95%; }
-    #container { padding: 2em; }
-    #welcome, #status { margin-bottom: 2em; }
-    #welcome h1 span { display: block; font-size: 50%; }
-    #icon-status, #icon-book { float: left; height: 64px; margin-right: 1em; margin-top: -4px; width: 64px; }
-    #icon-book { display: none; }
-
-    
-    .menu {
-        border-top:1px solid gray;
-        border-bottom:1px solid gray;
-        margin-bottom:20px;        
-        
-    }
-    .menu ul {padding-left:0px;}
-    .menu ul li {
-        display: block-inline;
-        border-right: 1px solid gray;
-        padding-right:5px;
-    }
-    
-    .menu .last {
-        float: right;
-        border-right: 0px ;        
-    }
-    
-    .current a {color:#0c0c0c;}
-    
-    .input-group {
-        margin:5px;
-    }
-
-    
-    .list li {
-        margin-bottom:10px;
-    }
-    
-    @media (min-width: 768px) {
-        #wrapper { width: 80%; margin: 2em auto; }
-        #icon-book { display: inline-block; }
-        
-    @-webkit-keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
-    
-    @keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
-        .sf-toolbar { opacity: 0; -webkit-animation: fade-in 1s .2s forwards; animation: fade-in 1s .2s forwards;}
-    }
-    
-    .flash-notice, .alert-danger{
-        padding:10px;
-        margin-top:10px;
-        margin-bottom:10px;
-        border: 1px dashed gray;
-    }
-    
-    
-    .breadcrumb {
-        padding-left:0px;
-        font-weight: bold;
-        padding-bottom: 15px;
-    }
-    
-</style>
-{% endblock %}
-
+    {% block javascripts %}
+    {% endblock %}
 </body>
 </html>
-

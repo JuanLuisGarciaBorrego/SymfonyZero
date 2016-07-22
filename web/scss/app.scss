@@ -1,0 +1,12 @@
+@import "variables";
+@import "navbar";
+@import "index";
+@import "user-forms";
+
+.container {
+  max-width: $container-max-width;
+}
+
+.btn {
+  border-radius: 2px;
+}
