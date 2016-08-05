@@ -61,16 +61,16 @@ POSIX needs to be enabled (only on *nix)
  Also, to install the bundle to work with MailChimp you need to install curl:
  
  ```sh
- apt-get install memcached php5-curl
+ apt-get install php5-curl
  ```
  
- If you don't want to use it, you must disable the bundle before the setup process in composer.json:
+ By default, the bundle is disable, so if you want to use it, you must add the bundle in _composer.json_ before the composer install command:
  
   ```sh
  "mlpz/mailchimp-bundle": "dev-master",
  ```
  
- And in the file _app/AppKernel.php_ remove the line:
+ And in the file _app/AppKernel.php_ uncomment the line:
  
   ```sh
  new MZ\MailChimpBundle\MZMailChimpBundle(),
@@ -105,6 +105,12 @@ If you change the model, remember you have to do this:
 $ php bin/console doctrine:schema:update --force
 ```
 
+To install the assets you need to run this command (for prod environment):
+
+```sh
+$ php bin/console assetic:dump --env=prod --no-debug
+```
+
 To run the application you have to configure your web server correctly. You can see how to configure it in the [official guide](http://symfony.com/doc/current/cookbook/configuration/web_server_configuration.html). When you have your server running and configured, you can check the installation in your browser:
 ```
 http://localhost:8000/config.php
@@ -132,6 +138,7 @@ SymfonyZero has available a pre-configured third party bundles to give a solutio
 *  [SonataIntlBundle](https://github.com/sonata-project/SonataIntlBundle) - SonataIntlBundle provides text and date formatting depends on locale.
 *  [MZMailChimpBundle](https://github.com/miguel250/MZMailChimpBundle) - MZMailChimpBundle is a bundle which integrates MailChimp API with Symfony Apps easily.
 *  [HWIOAuthBundle](https://github.com/hwi/HWIOAuthBundle) - HWIOAuthBundle adds support for authenticating users via OAuth1.0a or OAuth2 in Symfony2 with more of 40 different providers like Facebook, Twitter, Google...
+*  [AsseticBundle](https://github.com/symfony/assetic-bundle) - AsseticBundle provides integration of the Assetic library into the Symfony2 framework.
 
 **Common Sections and Funcionallity**
  
