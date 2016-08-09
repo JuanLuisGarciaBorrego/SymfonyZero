@@ -3,7 +3,7 @@ SymfonyZero
 
 # What is?
  
-SymfonyZero is a free fully functional kickstarter edition. You can use it as a base for your Symfony web projects with a typical architecture. SymfonyZero includes the most common bundles preconfigured and the usual sections of a website. SymfonyZero helps you to build web projects more quiclky, saving time in the early stages of the development. Also, you can enable or disable any feature easily, and also, SymfonyZero is fully configurable to adapt it to the needs of your project.
+SymfonyZero is a free fully functional kickstarter edition. You can use it as a base for your Symfony web projects with a typical architecture. SymfonyZero includes the most common bundles preconfigured and the usual sections of a website with responsive design. SymfonyZero helps you to build web projects more quiclky, saving time in the early stages of the development. Also, you can enable or disable any feature easily, and also, SymfonyZero is fully configurable to adapt it to the needs of your project.
 
 In this documentation you can learn about how to install, configure, what bundles and sections are availables and how you can help to imporove it. SymfonyZero is an alive project and we'll be adding new features and improvements, so stay tuned for new updates.
 
@@ -115,8 +115,20 @@ To run the application you have to configure your web server correctly. You can 
 ```
 http://localhost:8000/config.php
 ```
+
 Now you can build your own project using SymfonyZero by yourself. You have available differents bundles and sections. To enable or disable these options, and to know how to configure all the posibilities of SymfonyZero, read next chapters about the current features availables and how you can configure them.
  
+# How to update
+
+If you update your repository with a new version of SymfonyZero of with your new changes, you don't need to do again all the commands includes in the previous section. To do it quicklier we provides a console command which execute the needed commands for you. To run it:
+
+```sh
+$ php bin/console zero:deploy
+```
+
+If you want to edit the command to suit your needs, you can find it in _src/AppBundle/Command/DeployCommand.php_.
+
+
 # Features
  
  SymfonyZero helps you to develop build your web applications quickly. SymfonyZero is made up of several bundles (Symfony Standard Edition bundles and Third party bundles) and usual features and sections which appears in a wide range of websites. In this section you can read what is included in each of these parts.
@@ -142,6 +154,7 @@ SymfonyZero has available a pre-configured third party bundles to give a solutio
 
 **Common Sections and Funcionallity**
  
+ * Responsive design using Bootstrap
  * Landing page with slider
  * Private section to manage entities
  * Contacto form with email service pre-configured
