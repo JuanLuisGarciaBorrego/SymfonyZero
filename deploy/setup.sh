@@ -4,8 +4,8 @@ GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
 NC='\033[0m' # No Color
 
-PATH='/var/www/SymfonyZero'
-BRACH='master'
+SYMFONYPATH='/var/www/SymfonyZero'
+BRANCH='master'
 
 # PHP and Curl
 if ! type php -v > /dev/null 2>&1; then
@@ -48,18 +48,18 @@ if ! type composer > /dev/null 2>&1; then
 fi
 
 # Update and enable Apache2 config
-sudo mv PATH/bin/symfonyzero.conf /etc/apache2/sites-available/symfonyzero.conf && sudo rm sudo /etc/apache2/sites-available/000-default.conf && ln -s /etc/apache2/sites-available/symfonyzero.conf /etc/apache2/sites-enabled
+sudo mv $SYMFONYPATH/bin/symfonyzero.conf /etc/apache2/sites-available/symfonyzero.conf && sudo rm sudo /etc/apache2/sites-available/000-default.conf && ln -s /etc/apache2/sites-available/symfonyzero.conf /etc/apache2/sites-enabled
 sudo service apache2 restart
 
 # Update repo and Symfony deploy
-cd $PATH
+cd $SYMFONYPATH
 
 git pull origin $BRANCH
 sudo chmod -R 777 bin/cache/
 sudo chmod -R 777 bin/logs/
 
 printf "${GREEN}Installing vendors:${NC} "
-cd $PATH && composer install
+cd $SYMFONYPATH && composer install
 
 php bin/console doctrine:database:create
 php bin/console doctrine:schema:update --force
