@@ -3,7 +3,7 @@ SymfonyZero
 
 # What is?
  
-SymfonyZero is a free fully functional kickstarter edition. You can use it as a base for your Symfony web projects with a typical architecture. SymfonyZero includes the most common bundles preconfigured and the usual sections of a website. SymfonyZero helps you to build web projects more quiclky, saving time in the early stages of the development. Also, you can enable or disable any feature easily, and also, SymfonyZero is fully configurable to adapt it to the needs of your project.
+SymfonyZero is a free fully functional kickstarter edition. You can use it as a base for your Symfony web projects with a typical architecture. SymfonyZero includes the most common bundles preconfigured and the usual sections of a website with responsive design. SymfonyZero helps you to build web projects more quiclky, saving time in the early stages of the development. Also, you can enable or disable any feature easily, and also, SymfonyZero is fully configurable to adapt it to the needs of your project.
 
 In this documentation you can learn about how to install, configure, what bundles and sections are availables and how you can help to imporove it. SymfonyZero is an alive project and we'll be adding new features and improvements, so stay tuned for new updates.
 
@@ -61,16 +61,16 @@ POSIX needs to be enabled (only on *nix)
  Also, to install the bundle to work with MailChimp you need to install curl:
  
  ```sh
- apt-get install memcached php5-curl
+ apt-get install php5-curl
  ```
  
- If you don't want to use it, you must disable the bundle before the setup process in composer.json:
+ By default, the bundle is disable, so if you want to use it, you must add the bundle in _composer.json_ before the composer install command:
  
   ```sh
  "mlpz/mailchimp-bundle": "dev-master",
  ```
  
- And in the file _app/AppKernel.php_ remove the line:
+ And in the file _app/AppKernel.php_ uncomment the line:
  
   ```sh
  new MZ\MailChimpBundle\MZMailChimpBundle(),
@@ -105,12 +105,30 @@ If you change the model, remember you have to do this:
 $ php bin/console doctrine:schema:update --force
 ```
 
+To install the assets you need to run this command (for prod environment):
+
+```sh
+$ php bin/console assetic:dump --env=prod --no-debug
+```
+
 To run the application you have to configure your web server correctly. You can see how to configure it in the [official guide](http://symfony.com/doc/current/cookbook/configuration/web_server_configuration.html). When you have your server running and configured, you can check the installation in your browser:
 ```
 http://localhost:8000/config.php
 ```
+
 Now you can build your own project using SymfonyZero by yourself. You have available differents bundles and sections. To enable or disable these options, and to know how to configure all the posibilities of SymfonyZero, read next chapters about the current features availables and how you can configure them.
  
+# How to update
+
+If you update your repository with a new version of SymfonyZero of with your new changes, you don't need to do again all the commands includes in the previous section. To do it quicklier we provides a console command which execute the needed commands for you. To run it:
+
+```sh
+$ php bin/console zero:deploy
+```
+
+If you want to edit the command to suit your needs, you can find it in _src/AppBundle/Command/DeployCommand.php_.
+
+
 # Features
  
  SymfonyZero helps you to develop build your web applications quickly. SymfonyZero is made up of several bundles (Symfony Standard Edition bundles and Third party bundles) and usual features and sections which appears in a wide range of websites. In this section you can read what is included in each of these parts.
@@ -132,9 +150,11 @@ SymfonyZero has available a pre-configured third party bundles to give a solutio
 *  [SonataIntlBundle](https://github.com/sonata-project/SonataIntlBundle) - SonataIntlBundle provides text and date formatting depends on locale.
 *  [MZMailChimpBundle](https://github.com/miguel250/MZMailChimpBundle) - MZMailChimpBundle is a bundle which integrates MailChimp API with Symfony Apps easily.
 *  [HWIOAuthBundle](https://github.com/hwi/HWIOAuthBundle) - HWIOAuthBundle adds support for authenticating users via OAuth1.0a or OAuth2 in Symfony2 with more of 40 different providers like Facebook, Twitter, Google...
+*  [AsseticBundle](https://github.com/symfony/assetic-bundle) - AsseticBundle provides integration of the Assetic library into the Symfony2 framework.
 
 **Common Sections and Funcionallity**
  
+ * Responsive design using Bootstrap
  * Landing page with slider
  * Private section to manage entities
  * Contacto form with email service pre-configured
