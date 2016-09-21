@@ -4,7 +4,12 @@ imports:
     - { resource: "@AppBundle/Resources/config/services.yml" }
 
 parameters:
+    parsermarkdown.urlReadme: https://raw.githubusercontent.com/agustinfrancoconceglieri/pruebaUbuntu/master/README.md
+
 
 services:
     fos_user.doctrine_registry:
         alias: doctrine
+    parsermarkdown:
+        class:      AppBundle\Services\ParserMarkdown
+        arguments:  [%parsermarkdown.urlReadme%]

@@ -7,7 +7,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-
+use Symfony\Component\Finder\Finder;
 
 class DefaultController extends Controller
 {
@@ -133,6 +133,16 @@ class DefaultController extends Controller
      */
     public function readMeAction()
     {
-        return $this->render('AppBundle:Default:docs/readme.html.twig');
+
+
+        $servicio_parsedown = $this->get('parsermarkdown');
+        $parsedReadme = $servicio_parsedown->parseReadme();
+
+        //Recurso local
+        //$readmemdDirectory = $this->get('kernel')->getRootDir() . '/../README.md';
+        //$contenido_fichero = file_get_contents($readmemdDirectory);
+        //return $this->text($contenido_fichero);
+
+        return $this->render('AppBundle:Default:docs/readmemd.html.twig', array("fichero1"=>$parsedReadme));
     }
 }
