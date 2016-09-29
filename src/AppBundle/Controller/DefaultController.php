@@ -133,16 +133,15 @@ class DefaultController extends Controller
      */
     public function readMeAction()
     {
+        $parsedown_service = $this->get('parsermarkdown');
+        $parsed_readme_file = $parsedown_service->parseReadmeUrl();
 
-
-        $servicio_parsedown = $this->get('parsermarkdown');
-        $parsedReadme = $servicio_parsedown->parseReadme();
-
-        //Recurso local
-        //$readmemdDirectory = $this->get('kernel')->getRootDir() . '/../README.md';
-        //$contenido_fichero = file_get_contents($readmemdDirectory);
-        //return $this->text($contenido_fichero);
-
-        return $this->render('AppBundle:Default:docs/readmemd.html.twig', array("fichero1"=>$parsedReadme));
+        if($parsed_readme_file){
+            return $this->render('AppBundle:Default:docs/readme.html.twig', array("readmeFile"=>$parsed_readme_file));
+        }else{
+            $readme_file = $this->get('kernel')->getRootDir() . '/../README.md';
+            $parsed_readme_file = $parsedown_service->parseReadmeFile(file_get_contents($readme_file));
+            return $this->render('AppBundle:Default:docs/readme.html.twig', array("readmeFile"=>$parsed_readme_file));
+        }
     }
 }
