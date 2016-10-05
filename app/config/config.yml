@@ -207,6 +207,7 @@ hwi_oauth:
 assetic:
     debug:          '%kernel.debug%'
     use_controller: '%kernel.debug%'
+    bundles:        ['BootstrapBundle']
     filters:
         cssrewrite: ~
         scssphp:
