@@ -21,12 +21,12 @@ security:
             anonymous: true
             oauth:
                 resource_owners:
-                    google: "/login_social/check-google"
-                    facebook: "/login_social/check-facebook"
-                    twitter: "/login_social/check-twitter"
-                login_path: /login_social
+                    google: "/login/check-google"
+                    facebook: "/login/check-facebook"
+                    twitter: "/login/check-twitter"
+                login_path: /login
                 use_forward: false
-                failure_path: /login_social
+                failure_path: /login
                 oauth_user_provider:
                     #service: hwi_oauth.user.provider.fosub_bridge
                     service: symfonyzero.provider.oauth
