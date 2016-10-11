@@ -133,15 +133,22 @@ class DefaultController extends Controller
      */
     public function aboutAction()
     {
+        
+        $breadcrumbs = $this->get('white_october_breadcrumbs');
+        $breadcrumbs->addItem('Home', $this->get('router')->generate('homepage'));
+        $breadcrumbs->addItem('About');
+
         $parsedown_service = $this->get('parsermarkdown');
         $parsed_readme_file = $parsedown_service->parseReadmeUrl();
 
         if($parsed_readme_file){
-            return $this->render('AppBundle:Default:docs/readme.html.twig', array("readmeFile"=>$parsed_readme_file));
+            $render = $this->render('AppBundle:Default:docs/readme.html.twig', array("readmeFile"=>$parsed_readme_file));
         }else{
             $readme_file = $this->get('kernel')->getRootDir() . '/../README.md';
             $parsed_readme_file = $parsedown_service->parseReadmeFile(file_get_contents($readme_file));
-            return $this->render('AppBundle:Default:docs/readme.html.twig', array("readmeFile"=>$parsed_readme_file));
+            $render = $this->render('AppBundle:Default:docs/readme.html.twig', array("readmeFile"=>$parsed_readme_file));
         }
+        
+        return $render;
     }
 }
