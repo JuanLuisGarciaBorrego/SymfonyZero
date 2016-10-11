@@ -36,13 +36,13 @@ class DefaultController extends Controller
     /**
      * @Route("/about", name="about")
      */
-    public function aboutAction()
-    {
-        $breadcrumbs = $this->get('white_october_breadcrumbs');
-        $breadcrumbs->addItem('Home', $this->get('router')->generate('homepage'));
-        $breadcrumbs->addItem('About');
-        return $this->render('AppBundle:Default:about.html.twig');
-    }
+//    public function aboutAction()
+//    {
+//        $breadcrumbs = $this->get('white_october_breadcrumbs');
+//        $breadcrumbs->addItem('Home', $this->get('router')->generate('homepage'));
+//        $breadcrumbs->addItem('About');
+//        return $this->render('AppBundle:Default:about.html.twig');
+//    }
 
     /**
      * @Route("/paginator", name="paginator_sample")
@@ -129,9 +129,9 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/readme", name="readme")
+     * @Route("/about", name="about")
      */
-    public function readMeAction()
+    public function aboutAction()
     {
         $parsedown_service = $this->get('parsermarkdown');
         $parsed_readme_file = $parsedown_service->parseReadmeUrl();
