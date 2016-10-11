@@ -45,9 +45,9 @@ class DefaultController extends Controller
 //    }
 
     /**
-     * @Route("/paginator", name="paginator_sample")
+     * @Route("/paginator/{page}/{limit}", name="paginator_sample")
      */
-    public function paginatorAction(Request $request)
+    public function paginatorAction(Request $request,$page=1,$limit=10)
     {
         $breadcrumbs = $this->get('white_october_breadcrumbs');
         $breadcrumbs->addItem('Home', $this->get('router')->generate('homepage'));
@@ -58,9 +58,9 @@ class DefaultController extends Controller
         //$dql = 'SELECT a FROM AppBundle:User a';
         //$query = $em->createQuery($dql);
 
-        $limit=10;
+        
         $paginator = $this->get('knp_paginator');                
-        $page=$request->query->getInt('page', 1);
+        //$page=$request->query->getInt('page', 1);
         
         $pagination = $paginator->paginate(
             $this->getFakeData(), ///*Uncomment for a real query*/  $query,
