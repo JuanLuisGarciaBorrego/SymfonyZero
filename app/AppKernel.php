@@ -30,8 +30,7 @@ class AppKernel extends Kernel
             //new MZ\MailChimpBundle\MZMailChimpBundle(),
             new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
-            new Themes\BootstrapBundle\BootstrapBundle(),
-//            new themes\BootstrapBundle\BootstrapBundle(),
+            new BootstrapBundle\BootstrapBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

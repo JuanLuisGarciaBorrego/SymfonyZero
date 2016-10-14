@@ -1,6 +1,6 @@
 <?php
 
-namespace Themes\BootstrapBundle\Tests\Controller;
+namespace BootstrapBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

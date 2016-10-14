@@ -1,32 +1,13 @@
-{#{%  extends  '::base.html.twig' %}#}
-{% stylesheets 'bundles/BootstrapBundle/Resources/Public/css/bootstrap.min.css' filter='cssrewrite' %}
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-{% endstylesheets %}
-
-{% javascripts 'bundles/BootstrapBundle/Resources/Public/boostrap/js/jquery.min.js' %}
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-{% endjavascripts %}
-
-{% javascripts 'bundles/BootstrapBundle/Resources/Public/boostrap/js/bootstrap.min.js' %}
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-{% endjavascripts %}
+{%  extends  'BootstrapBundle::layout.html.twig' %}
 
 {% block body -%}
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <title>Carrousel Example</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <style>
-            .carousel-inner > .item > img,
-            .carousel-inner > .item > a > img {
-                width: 70%;
-                margin: auto;
-            }
-        </style>
-    </head>
-    <body>
+    <style>
+        .carousel-inner > .item > img,
+        .carousel-inner > .item > a > img {
+            width: 70%;
+            margin: auto;
+        }
+    </style>
     <div class="container">
         <br>
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -72,9 +53,4 @@
         This is an example of "SymfonyZero project" integrated with bootstrap!.
         <br>
     </div>
-
-
-    </body>
-    </html>
-
-{% endblock %}
+{%endblock%}
