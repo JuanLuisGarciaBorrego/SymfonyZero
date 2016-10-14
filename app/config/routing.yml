@@ -18,15 +18,21 @@ easy_admin_bundle:
 
 hwi_oauth_redirect:
     resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
-    prefix:   /login_google
+    prefix:   /login
 
 hwi_oauth_login:
     resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
-    prefix:   /login_google
+    prefix:   /login
 
 hwi_oauth_connect:
     resource: "@HWIOAuthBundle/Resources/config/routing/connect.xml"
-    prefix:   /login_google
+    prefix:   /login
 
 google_login:
-    path: /login_google/check-google
+    path: /login/check-google
+
+facebook_login:
+    path: /login/check-facebook
+
+twitter_login:
+    path: /login/check-twitter

@@ -2,6 +2,9 @@
 @import "navbar";
 @import "index";
 @import "user-forms";
+@import "footer";
+@import "readme";
+
 
 .container {
   max-width: $container-max-width;
@@ -9,4 +12,14 @@
 
 .btn {
   border-radius: 2px;
+}
+
+html{
+  position:relative;
+  min-height: 100%;
+}
+
+body{
+  margin-bottom: 60px;
+  background-color:#eee;
 }

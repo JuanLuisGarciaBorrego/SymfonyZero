@@ -24,6 +24,12 @@
       <input type="password" id="password" name="_password" class="form-control" placeholder="Password" required>
 
       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+
+      <div class="under-form-buttons">
+        <a class="btn btn-lg btn-warning btn-block" href={{ path('hwi_oauth_service_redirect', {'service': 'google'}) }}>Sign in with Google</a>
+        <a class="btn btn-lg btn-primary btn-block" href={{ path('hwi_oauth_service_redirect', {'service': 'facebook'}) }}>Sign in with Facebook</a>
+        <a class="btn btn-lg btn-info btn-block" href={{ path('hwi_oauth_service_redirect', {'service': 'twitter'}) }}>Sign in with Twitter</a>
+      </div>
     </form>
   </div>
 </div>

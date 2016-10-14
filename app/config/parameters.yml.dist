@@ -18,3 +18,13 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
+
+    #Social app ids and secrets to activate login.
+    client_id_google: XXXX
+    client_secret_google: XXXX
+
+    client_id_facebook: XXXX
+    client_secret_facebook: XXXX
+
+    client_id_twitter: XXXX
+    client_secret_twitter: XXXX

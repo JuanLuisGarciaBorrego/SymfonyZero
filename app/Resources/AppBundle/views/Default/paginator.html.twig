@@ -1,0 +1,26 @@
+{% extends '::base.html.twig' %}
+{%block body%}
+{# total items count #}
+<h2>Pagination example</h2>
+You can set the page number and the amount of items to recover in the URL: 
+<br/><b><i>http://localhost:8000/paginator/{page_number}/{amount}</i></b>
+<table style="width:100%">
+<tr>
+    <th style='padding: 20px 0px 20px 0px'>{{ knp_pagination_sortable(pagination, 'Username', 'a.username') }}</th>
+</tr>
+
+{% for item in pagination %}
+    <tr {% if loop.index is odd %}style="background-color:#f5f5f5;"{% endif %}>
+        <td style="border:1px dashed lightgrey;padding:10px">{{ item.username }}</td>
+    </tr>
+{% endfor %}
+</table>
+
+<div class="navigation" style='float:left'>
+    {{ knp_pagination_render(pagination) }}
+</div>
+<div class="count" style='float:right;padding-top:20px;font-weight:bold'>
+    <span style='color:gray'>Total items:</span>{{ pagination.getTotalItemCount }}
+</div>
+<div style='clear:both'></div>
+{%endblock%}

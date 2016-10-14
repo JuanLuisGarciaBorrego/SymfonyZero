@@ -7,7 +7,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-
+use Symfony\Component\Finder\Finder;
 
 class DefaultController extends Controller
 {
@@ -36,18 +36,18 @@ class DefaultController extends Controller
     /**
      * @Route("/about", name="about")
      */
-    public function aboutAction()
-    {
-        $breadcrumbs = $this->get('white_october_breadcrumbs');
-        $breadcrumbs->addItem('Home', $this->get('router')->generate('homepage'));
-        $breadcrumbs->addItem('About');
-        return $this->render('AppBundle:Default:about.html.twig');
-    }
+//    public function aboutAction()
+//    {
+//        $breadcrumbs = $this->get('white_october_breadcrumbs');
+//        $breadcrumbs->addItem('Home', $this->get('router')->generate('homepage'));
+//        $breadcrumbs->addItem('About');
+//        return $this->render('AppBundle:Default:about.html.twig');
+//    }
 
     /**
-     * @Route("/paginator", name="paginator_sample")
+     * @Route("/paginator/{page}/{limit}", name="paginator_sample")
      */
-    public function paginatorAction(Request $request)
+    public function paginatorAction(Request $request,$page=1,$limit=10)
     {
         $breadcrumbs = $this->get('white_october_breadcrumbs');
         $breadcrumbs->addItem('Home', $this->get('router')->generate('homepage'));
@@ -58,9 +58,9 @@ class DefaultController extends Controller
         //$dql = 'SELECT a FROM AppBundle:User a';
         //$query = $em->createQuery($dql);
 
-        $limit=10;
+        
         $paginator = $this->get('knp_paginator');                
-        $page=$request->query->getInt('page', 1);
+        //$page=$request->query->getInt('page', 1);
         
         $pagination = $paginator->paginate(
             $this->getFakeData(), ///*Uncomment for a real query*/  $query,
@@ -129,10 +129,26 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/readme", name="readme")
+     * @Route("/about", name="about")
      */
-    public function readMeAction()
+    public function aboutAction()
     {
-        return $this->render('AppBundle:Default:docs/readme.html.twig');
+        
+        $breadcrumbs = $this->get('white_october_breadcrumbs');
+        $breadcrumbs->addItem('Home', $this->get('router')->generate('homepage'));
+        $breadcrumbs->addItem('About');
+
+        $parsedown_service = $this->get('parsermarkdown');
+        $parsed_readme_file = $parsedown_service->parseReadmeUrl();
+
+        if($parsed_readme_file){
+            $render = $this->render('AppBundle:Default:docs/readme.html.twig', array("readmeFile"=>$parsed_readme_file));
+        }else{
+            $readme_file = $this->get('kernel')->getRootDir() . '/../README.md';
+            $parsed_readme_file = $parsedown_service->parseReadmeFile(file_get_contents($readme_file));
+            $render = $this->render('AppBundle:Default:docs/readme.html.twig', array("readmeFile"=>$parsed_readme_file));
+        }
+        
+        return $render;
     }
 }

@@ -1,0 +1,18 @@
+{%extends '::base.html.twig'%}
+{%block body%}    
+    
+<h2>TinyMCE example</h2>
+<p/>
+
+
+    
+    {#<div class='centered_div'>#}
+        <textarea class="tinymce"></textarea>
+    {#</div>        #}
+{%endblock%}
+
+{% block javascripts %}
+    {{parent()}}    
+    {{ tinymce_init() }}
+    
+{% endblock %}
