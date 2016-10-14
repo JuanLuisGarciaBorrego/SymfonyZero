@@ -1,20 +1,11 @@
-{#@rcarballo
-http://symfony.com/doc/current/assetic/yuicompressor.html
-
-The YUI Compressor is no longer maintained by Yahoo. That's why you are strongly advised to avoid using 
-YUI utilities unless strictly necessary. Read How to Minify CSS/JS Files (Using UglifyJS and UglifyCSS) 
-for a modern and up-to-date alternative.
-#}
-
-
 {% extends '::base.html.twig' %}
 {% block stylesheets %}
     {{parent()}}
-    {% stylesheets 
-    'bundles/BootstrapBundle/Resources/public/css/selvira.customview.css'
-    'bundles/BootstrapBundle/Resources/public/css/bootstrap.css'
-    'bundles/BootstrapBundle/Resources/public/css/bootstrap-responsive.css'
-    filter='cssrewrite' debug=false  output='css/mycss.css'%}
+    {% stylesheets
+    'bundles/bootstrap/css/selvira.customview.css'
+    'bundles/bootstrap/css/bootstrap.css'
+    'bundles/bootstrap/css/bootstrap-responsive.css'
+    filter='cssrewrite' debug=false  output='css/app.css'%}
     <link href="{{ asset_url }}" rel="stylesheet" type="text/css" />        
     {% endstylesheets %}
 {% endblock %}
@@ -25,8 +16,8 @@ for a modern and up-to-date alternative.
 {% block javascripts %}
     {{parent()}}
     {% javascripts 
-    'bundles/BootstrapBundle/Resources/public/js/jquery-3.1.1.min.js'
-    'bundles/BootstrapBundle/Resources/public/js/bootstrap.min.js'
+    'bundles/bootstrap/js/jquery-3.1.1.min.js'
+    'bundles/bootstrap/Resources/public/js/bootstrap.min.js'
     output="js/myscript.js" debug=false %}
     <script src="{{ asset_url }}"></script>
 {% endjavascripts %}
