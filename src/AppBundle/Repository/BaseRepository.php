@@ -46,4 +46,15 @@ abstract class BaseRepository extends EntityRepository
             return true;
         }
     }
+
+    public function createEntities($models)
+    {
+        foreach($models as $model) {
+            $this->getEntityManager()->persist($model);
+        }
+
+        $this->getEntityManager()->flush();
+
+        return true;
+    }
 }

@@ -20,11 +20,11 @@ parameters:
     secret:            ThisTokenIsNotSoSecretChangeIt
 
     #Social app ids and secrets to activate login.
-    client_id_google: XXXX
-    client_secret_google: XXXX
+    client_id_google: ~
+    client_secret_google: ~
 
-    client_id_facebook: XXXX
-    client_secret_facebook: XXXX
+    client_id_facebook: ~
+    client_secret_facebook: ~
 
-    client_id_twitter: XXXX
-    client_secret_twitter: XXXX
+    client_id_twitter: ~
+    client_secret_twitter: ~
