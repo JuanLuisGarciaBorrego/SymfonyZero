@@ -84,6 +84,7 @@ fos_user:
 easy_admin:
     entities:
         - AppBundle\Entity\User
+        - AppBundle\Entity\Carrusel
 
 knp_paginator:
     page_range: 5                      # default page range used in pagination control

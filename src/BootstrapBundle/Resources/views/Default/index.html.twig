@@ -48,9 +48,29 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-        <br>
-        HI {{ name }}!
-        This is an example of "SymfonyZero project" integrated with bootstrap!.
-        <br>
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-xs-12 col-md-4 main-column">
+                    <p class="icon-header"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></p>
+
+                    <p>In this documentation you can learn about how to install, configure, available bundles and sections and how can you help to improve it.</p>
+                </div>
+
+                <div class="col-xs-12 col-md-4 main-column">
+                    <p class="icon-header"><span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span></p>
+
+                    <p>SymfonyZero is an alive project and we'll be adding new features and improvements, so stay tuned for new updates.</p>
+                    <p>If you detect an error, you know how to improve it or you have an idea about this edition, please, fix it, do it or write us!</p>
+                </div>
+
+                <div class="col-xs-12 col-md-4 main-column">
+                    <p class="icon-header"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></p>
+
+                    <p>For further information, please take a look to <a href="{{path('about')}}">About</a></p>
+                </div>
+            </div>
+        </div>
     </div>
 {%endblock%}
