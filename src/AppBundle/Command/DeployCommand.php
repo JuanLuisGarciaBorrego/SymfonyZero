@@ -11,9 +11,10 @@ use Symfony\Component\Console\Output\BufferedOutput;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
+use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 
 
-class DeployCommand extends Command
+class DeployCommand extends ContainerAwareCommand
 {
     protected $output;
 
@@ -26,17 +27,20 @@ class DeployCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-      $this->output = $output;
+        $cachePath = $this->getContainer()->get('kernel')->getRootdir().'/../var/cache/*';
+        $logsPath = $this->getContainer()->get('kernel')->getRootdir().'/../var/logs/*';
+        $this->output = $output;
 
-      $this->runProccess('composer install');
-      $this->runProccess('composer update');
+        $this->runProccess('composer install');
 
-      $this->runCommand('doctrine:schema:update --force');
+        $this->runCommand('doctrine:schema:update --force');
 
-      $this->runCommand('assetic:dump --env=prod --no-debug');
+        $this->runCommand('assetic:dump --env=prod --no-debug');
 
-      $this->runCommand('cache:clear');
-      $this->runCommand('cache:clear --env=prod');
+        $this->runCommand('cache:clear');
+        $this->runCommand('cache:clear --env=prod');
+        $this->runProccess('sudo chmod -R 777 '. $cachePath);
+        $this->runProccess('sudo chmod -R 777 '. $logsPath);
     }
 
     protected function runProccess($command)

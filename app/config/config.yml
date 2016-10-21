@@ -126,7 +126,6 @@ xsolve_cookie_acknowledgement:
     response_injection: true # default true
     template: ::default/custom_cookies_message.html.twig
 
-
 sonata_seo:
     encoding:         UTF-8
     page:

@@ -10,6 +10,27 @@ parameters:
 services:
     fos_user.doctrine_registry:
         alias: doctrine
-    parsermarkdown:
+
+    symfonyzero.email:
+        class:  AppBundle\Services\Email
+        arguments: ['@swiftmailer.mailer', '@templating', '%mailer_user%']
+
+    symfonyzero.provider.oauth:
+        class:  AppBundle\Security\FOSUBUserProvider
+        arguments: ['@fos_user.user_manager', { facebook: facebook_id, google: google_id, twitter: twitter_id }]
+
+    user.registration.form.type:
+        class: AppBundle\Form\Type\RegistrationFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: user_registration }
+
+    user.profile.form.type:
+        class: AppBundle\Form\Type\ProfileFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: user_profile }
+
+    symfonyzero.parsermarkdown:
         class:      AppBundle\Services\ParserMarkdown
         arguments:  [%parsermarkdown.urlReadme%]
