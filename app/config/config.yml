@@ -192,38 +192,38 @@ hwi_oauth:
         confirmation: true
 
     resource_owners:
-        google:
-            type: google
-            client_id: %client_id_google%
-            client_secret: %client_secret_google%
-            scope: "profile email"
+#        google:
+#            type: google
+#            client_id: %client_id_google%
+#            client_secret: %client_secret_google%
+#            scope: "profile email"
 
-        facebook:
-            type: facebook
-            client_id: %client_id_facebook%
-            client_secret: %client_secret_facebook%
-            scope: "email, public_profile"
-            infos_url: "https://graph.facebook.com/me?fields=id,name,email,picture.type(large)"
-            paths:
-              email: email
-            options:
-              display: page
-        twitter:
-          type: twitter
-          client_id: %client_id_twitter%
-          client_secret: %client_secret_twitter%
-          paths:
-            profilepicture: "profile_image_url"
+#        facebook:
+#            type: facebook
+#            client_id: %client_id_facebook%
+#            client_secret: %client_secret_facebook%
+#            scope: "email, public_profile"
+#            infos_url: "https://graph.facebook.com/me?fields=id,name,email,picture.type(large)"
+#            paths:
+#              email: email
+#            options:
+#              display: page
+#        twitter:
+#          type: twitter
+#          client_id: %client_id_twitter%
+#          client_secret: %client_secret_twitter%
+#          paths:
+#            profilepicture: "profile_image_url"
 
-    fosub:
+#    fosub:
         # try 30 times to check if a username is available (foo, foo1, foo2 etc)
-        username_iterations: 30
+#        username_iterations: 30
 
         # mapping between resource owners (see below) and properties
-        properties:
-            google: google_id
-            facebook: facebook_id
-            twitter: twitter_id
+#        properties:
+#            google: google_id
+#            facebook: facebook_id
+#            twitter: twitter_id
 
 assetic:
     debug:          '%kernel.debug%'

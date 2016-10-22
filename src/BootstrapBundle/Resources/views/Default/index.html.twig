@@ -1,10 +1,11 @@
 {%  extends  'BootstrapBundle::layout.html.twig' %}
 
 {% block body -%}
+
     <style>
         .carousel-inner > .item > img,
         .carousel-inner > .item > a > img {
-            width: 70%;
+            width: 100%;
             margin: auto;
         }
     </style>
@@ -22,19 +23,19 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
-                    <img src="http://k39.kn3.net/65A979F8F.jpg" alt="Chania" width="460" height="345">
+                    <img src="{{ asset('bundles/bootstrap/img/Symfony.jpg') }}" alt="SymfonyZero" width="460" height="345">
                 </div>
 
                 <div class="item">
-                    <img src="http://k31.kn3.net/taringa/7/0/5/7/8/2//rsmafull/6D2.jpg?7145" alt="Chania" width="460" height="345">
+                    <img src="https://cdn2.hubspot.net/hubfs/2463543/Blog_Post_Image/Blog_Dev/background-symfony.jpg" alt="img3" width="460" height="345">
                 </div>
 
                 <div class="item">
-                    <img src="https://i.ytimg.com/vi/qkK6M2eF2mo/maxresdefault.jpg" alt="Flower" width="460" height="345">
+                    <img src="https://www.amazeelabs.com/sites/default/files/symfony-speaker-1920x1080.jpg" alt="img3" width="460" height="345">
                 </div>
 
                 <div class="item">
-                    <img src="http://www.fincassoto.es/img/slider/img_10032016185606.jpg" alt="Flower" width="460" height="345">
+                    <img src="https://www.amazeelabs.com/sites/default/files/symfony-volume-1920x1080.jpg" alt="img4" width="460" height="345">
                 </div>
             </div>
 
@@ -49,7 +50,7 @@
             </a>
         </div>
 
-        <div class="container">
+        {#<div class="container">#}
             <div class="row">
 
                 <div class="col-xs-12 col-md-4 main-column">
@@ -71,6 +72,6 @@
                     <p>For further information, please take a look to <a href="{{path('about')}}">About</a></p>
                 </div>
             </div>
-        </div>
+        {#</div>#}
     </div>
 {%endblock%}
