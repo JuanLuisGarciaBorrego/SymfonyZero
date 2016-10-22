@@ -66,4 +66,14 @@ class BaseManager
     {
         return $this->repo->all();
     }
+
+    /**
+     * @param  $array
+     *
+     * @return bool
+     */
+    public function createEntities($array)
+    {
+        return $this->repo->createEntities($array);
+    }
 }

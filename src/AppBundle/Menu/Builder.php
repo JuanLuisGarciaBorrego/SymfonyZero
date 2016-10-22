@@ -22,8 +22,6 @@ class Builder implements ContainerAwareInterface
         }
         $menu->addChild('About', array('route' => 'about'));
 
-
-
         //set ul classes
         $menu->setChildrenAttribute('class', 'nav navbar-nav');
         return $menu;

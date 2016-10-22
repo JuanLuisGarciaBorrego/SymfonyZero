@@ -3,8 +3,7 @@ parameters:
 
 services:
     symfonyzero.user.repository:
-        class: %symfonyzero.user.repository.class%
+        class: "%symfonyzero.user.repository.class%"
         public: true
-        factory_service: doctrine.orm.entity_manager
-        factory_method: getRepository
+        factory: ["@doctrine.orm.entity_manager", getRepository]
         arguments: [ AppBundle\Entity\User ]

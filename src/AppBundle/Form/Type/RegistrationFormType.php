@@ -25,7 +25,7 @@ class RegistrationFormType extends BaseType
                 'class' => 'form-control'
             )))
           ->add('name', null, array(
-            'label' => 'Name (custom property)',
+            'label' => 'Name',
             'translation_domain' => 'FOSUserBundle',
             'attr' => array(
                 'class' => 'form-control'

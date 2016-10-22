@@ -83,13 +83,12 @@ class FOSUBUserProvider implements UserProviderInterface, AccountConnectorInterf
      */
     public function loadUserByOAuthUserResponse(UserResponseInterface $response)
     {
-    	//Obtención de datos desde Response otorgado por el proveedor de identidad
+        //Get data from identity provider response
     	$email = $response->getEmail();
     	$userId = $email;
         $internalResponse = $response->getResponse();
         $socialID = $internalResponse['id'];
-        //Primero buscamos por el UserID de la red social contra la que estamos iniciando sesión
-        //en busca de si existe ya el usuario
+
     	$user = $this->userManager->findUserBy(array($this->getProperty($response) => $socialID));
     	
     	$username = $response->getNickname() ?: $response->getRealName();
@@ -98,14 +97,14 @@ class FOSUBUserProvider implements UserProviderInterface, AccountConnectorInterf
         if (empty($email)) {
           $email = $socialID.'@mailinator.com';
         }
-    	//Si no existe usuario con el userID pasado...
+
     	if (null === $user) {
-    		//Localizar si la dirección de correo / username están ya siendo utilizados
+            //Check if email address or username is already in use
             $user = $this->userManager->findUserByUsername($username);
             if(empty($user)) {
               $user = $this->userManager->findUserByUsernameOrEmail($email);
             }
-    		//Si están libres, proceder a crear el usuario
+            //If is possible, then create the user
     		if (null === $user || !$user instanceof UserInterface) {
     			$user = $this->userManager->createUser();
                 if(!empty($userId)) {
@@ -129,7 +128,7 @@ class FOSUBUserProvider implements UserProviderInterface, AccountConnectorInterf
                     break;
                 }
     			$this->userManager->updateUser($user);
-    		//Si están siendo utilizados añadir al usuario en cuestión el userID de la red social
+            //If these data are already in use, we have to add to their profile his userID
     		} else {
               $serviceName = $response->getResourceOwner()->getName();
               switch ($serviceName) {

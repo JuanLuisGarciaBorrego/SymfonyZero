@@ -14,13 +14,16 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
      * @var ContainerInterface
      */
     private $container;
+
     /**
      * {@inheritdoc}
      */
+
     public function setContainer(ContainerInterface $container = null)
     {
         $this->container = $container;
     }
+
     /**
      * {@inheritdoc}
      */

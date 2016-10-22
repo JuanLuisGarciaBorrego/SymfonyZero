@@ -1,15 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: strato
- * Date: 13/09/16
- * Time: 20:33
- */
 
 namespace AppBundle\Services;
+
 use Parsedown;
-
-
 
 
 class ParserMarkdown extends Parsedown
