@@ -16,20 +16,11 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-     $text1 = $this->getDoctrine()
+     $texts =  $this->getDoctrine()
          ->getRepository('AppBundle:Carrusel')
-         ->find(1);
-     $text2= $this->getDoctrine()
-         ->getRepository('AppBundle:Carrusel')
-         ->find(2);
-     $text3 = $this->getDoctrine()
-         ->getRepository('AppBundle:Carrusel')
-         ->find(3);
-     $text4 = $this->getDoctrine()
-         ->getRepository('AppBundle:Carrusel')
-         ->find(4);
+         ->findAll();
 
-        return $this->render('BootstrapBundle:Default:index.html.twig', array('text1' =>$text1->getText(),
-            'text2' =>$text2->getText(),'text3' =>$text3->getText(),'text4' =>$text4->getText()));
+        return $this->render('BootstrapBundle:Default:index.html.twig', array('text1' =>$texts[0]->getText(),
+            'text2' =>$texts[1]->getText(),'text3' =>$texts[2]->getText(),'text4' =>$texts[3]->getText()));
     }
 }
