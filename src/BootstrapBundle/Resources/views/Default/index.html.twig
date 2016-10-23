@@ -17,15 +17,14 @@
             opacity: 0.4;
             padding: 30px 19px 3px 209px;
             position: absolute;
-            color: white;
-            text-shadow:
-                    -1px -1px 0 #000,
-                    1px -1px 0 #000,
-                    -1px 1px 0 #000,
-                    1px 1px 0 #000;
+            color: black;
+            text-shadow: -1px -1px 0 #eee, 1px -1px 0 #eee, -1px 1px 0 #eee, 1px 1px 0 #eee;
         }
         .carousel-indicators{
             bottom:-5px;
+        }
+        .containerFoot{
+            margin-top: 15px;
         }
     </style>
     <div class="container">
@@ -73,7 +72,7 @@
             </a>
         </div>
 
-        {#<div class="container">#}
+        <div class="containerFoot">
             <div class="row">
 
                 <div class="col-xs-12 col-md-4 main-column">
@@ -95,6 +94,6 @@
                     <p>For further information, please take a look to <a href="{{path('about')}}">About</a></p>
                 </div>
             </div>
-        {#</div>#}
+        </div>
     </div>
 {%endblock%}
