@@ -8,6 +8,19 @@
             width: 100%;
             margin: auto;
         }
+        span.Text {
+            font-size: x-large;
+            font-family: monospace;
+            bottom: 20px;
+            margin: 0;
+            text-align: center;
+            opacity: 0.4;
+            padding: 30px 19px 3px 209px;
+            position: absolute;
+        }
+        .carousel-indicators{
+            bottom:-5px;
+        }
     </style>
     <div class="container">
         <br>
@@ -24,18 +37,22 @@
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
                     <img src="{{ asset('bundles/bootstrap/img/Symfony.jpg') }}" alt="SymfonyZero" width="460" height="345">
+                    <span class="Text">{{ text1 }}</span>
                 </div>
 
                 <div class="item">
                     <img src="https://cdn2.hubspot.net/hubfs/2463543/Blog_Post_Image/Blog_Dev/background-symfony.jpg" alt="img3" width="460" height="345">
+                    <span class="Text">{{ text2 }}</span>
                 </div>
 
                 <div class="item">
                     <img src="https://www.amazeelabs.com/sites/default/files/symfony-speaker-1920x1080.jpg" alt="img3" width="460" height="345">
+                    <span class="Text">{{ text3 }}</span>
                 </div>
 
                 <div class="item">
                     <img src="https://www.amazeelabs.com/sites/default/files/symfony-volume-1920x1080.jpg" alt="img4" width="460" height="345">
+                    <span class="Text">{{ text4 }}</span>
                 </div>
             </div>
 
