@@ -83,32 +83,66 @@ class FOSUBUserProvider implements UserProviderInterface, AccountConnectorInterf
      */
     public function loadUserByOAuthUserResponse(UserResponseInterface $response)
     {
-    	//Obtención de datos desde Response otorgado por el proveedor de identidad
-    	//La comprobación se rige por el userId. En el caso de Google, el userId será el email 
-    	//$userId = $response->getNickname();
+        //Get data from identity provider response
     	$email = $response->getEmail();
     	$userId = $email;
-    	$user = $this->userManager->findUserBy(array($this->getProperty($response) => $userId));
+        $internalResponse = $response->getResponse();
+        $socialID = $internalResponse['id'];
+
+    	$user = $this->userManager->findUserBy(array($this->getProperty($response) => $socialID));
     	
     	$username = $response->getNickname() ?: $response->getRealName();
-    	
-    	//Si no existe usuario con el username pasado...
+        $name = $response->getRealName();
+
+        if (empty($email)) {
+          $email = $socialID.'@mailinator.com';
+        }
+
     	if (null === $user) {
-    		//Localizar si la dirección de correo / username están ya siendo utilizados
-    		$user = $this->userManager->findUserByUsernameOrEmail($username, $email);
-    		//Si están libres, proceder a crear el usuario
+            //Check if email address or username is already in use
+            $user = $this->userManager->findUserByUsername($username);
+            if(empty($user)) {
+              $user = $this->userManager->findUserByUsernameOrEmail($email);
+            }
+            //If is possible, then create the user
     		if (null === $user || !$user instanceof UserInterface) {
     			$user = $this->userManager->createUser();
-    			$username = str_replace(' ', '', $userId);
+                if(!empty($userId)) {
+                  $username = str_replace(' ', '', $userId);
+                }
     			$user->setUsername($username);
     			$user->setEmail($email);
     			$user->setPassword('');
     			$user->setEnabled(true);
-    			$user->setGoogleId($userId);
+                $user->setName($name);
+                $serviceName = $response->getResourceOwner()->getName();
+                switch ($serviceName) {
+                  case 'google':
+                    $user->setGoogleId($socialID);
+                    break;
+                  case 'facebook':
+                    $user->setFacebookId($socialID);
+                    break;
+                  case 'twitter':
+                    $user->setTwitterId($socialID);
+                    break;
+                }
     			$this->userManager->updateUser($user);
-    		//Lanzar excepción si la dirección de correo o username ya estaban dados de alta en la BD
+            //If these data are already in use, we have to add to their profile his userID
     		} else {
-    			throw new AuthenticationException(sprintf("Username '%s' or Email '%s' has been already used", $username, $email));
+              $serviceName = $response->getResourceOwner()->getName();
+              switch ($serviceName) {
+                case 'google':
+                  $user->setGoogleId($socialID);
+                  break;
+                case 'facebook':
+                  $user->setFacebookId($socialID);
+                  break;
+                case 'twitter':
+                  $user->setTwitterId($socialID);
+                  break;
+              }
+              $this->userManager->updateUser($user);
     		}
     	} else {
     		$checker = new UserChecker();

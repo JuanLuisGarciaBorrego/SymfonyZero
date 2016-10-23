@@ -29,7 +29,8 @@ class AppKernel extends Kernel
             new Sonata\IntlBundle\SonataIntlBundle(),
             //new MZ\MailChimpBundle\MZMailChimpBundle(),
             new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
-            new Symfony\Bundle\AsseticBundle\AsseticBundle()
+            new Symfony\Bundle\AsseticBundle\AsseticBundle(),
+            new BootstrapBundle\BootstrapBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

@@ -3,5 +3,5 @@ parameters:
 
 services:
     symfonyzero.user.manager:
-        class: %symfonyzero.user.manager.class%
-        arguments: [@symfonyzero.user.repository ]
+        class: "%symfonyzero.user.manager.class%"
+        arguments: ["@symfonyzero.user.repository" ]
