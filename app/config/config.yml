@@ -80,7 +80,6 @@ fos_user:
         form:
             type: user_profile
 
-
 easy_admin:
     entities:
         - AppBundle\Entity\User
@@ -115,7 +114,6 @@ stfalcon_tinymce:
                      - "emoticons template paste textcolor"
                  toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
                  toolbar2: "print preview media | forecolor backcolor emoticons | stfalcon | example"
-
 
 raul_fraile_ladybug:
     theme: modern # select the theme: base, modern or custom themes

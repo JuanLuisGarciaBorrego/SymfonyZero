@@ -4,8 +4,7 @@ imports:
     - { resource: "@AppBundle/Resources/config/services.yml" }
 
 parameters:
-    parsermarkdown.urlReadme: https://raw.githubusercontent.com/Emergya/SymfonyZero/master/README.md
-
+    parsermarkdown.urlreadme: https://raw.githubusercontent.com/Emergya/SymfonyZero/master/README.md
 
 services:
     fos_user.doctrine_registry:
@@ -21,16 +20,16 @@ services:
 
     user.registration.form.type:
         class: AppBundle\Form\Type\RegistrationFormType
-        arguments: [%fos_user.model.user.class%]
+        arguments: ["%fos_user.model.user.class%"]
         tags:
             - { name: form.type, alias: user_registration }
 
     user.profile.form.type:
         class: AppBundle\Form\Type\ProfileFormType
-        arguments: [%fos_user.model.user.class%]
+        arguments: ["%fos_user.model.user.class%"]
         tags:
             - { name: form.type, alias: user_profile }
 
     symfonyzero.parsermarkdown:
         class:      AppBundle\Services\ParserMarkdown
-        arguments:  [%parsermarkdown.urlReadme%]
+        arguments:  ["%parsermarkdown.urlreadme%"]
