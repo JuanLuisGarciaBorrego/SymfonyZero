@@ -1,9 +1,9 @@
-
 {% block xsolve_cookie_message %}
-    <div id="cookie-law-info-bar" style="width:100%; background: rgba(51, 221, 227, 0.75); position: fixed; bottom: 40px; left: 0;">
-        <p style="text-align:center; padding: 10px;">
+    <div id="cookie-law-info-bar">
+        <p class='cookie-box'>
             {{ 'If you continue navigating, you accept the use of cookies'|trans({}, 'XsolveCookieAcknowledgementBundle') }} 
-            <a href="#" id="cookie-law-close-button">{{ 'I agree'|trans({}, 'XsolveCookieAcknowledgementBundle') }}</a>
+            <a href="#" id="cookie-law-close-button" class="btn btn-primary btn-pc">{{ 'I agree '|trans({}, 'XsolveCookieAcknowledgementBundle') }}</a>
+            <a href="{{ url('cookie-policy') }}" id="cookie-law-readmore-button">{{ ' Read more'|trans({}, 'XsolveCookieAcknowledgementBundle') }}</a>
         </p>
     </div>
 {% endblock %}
