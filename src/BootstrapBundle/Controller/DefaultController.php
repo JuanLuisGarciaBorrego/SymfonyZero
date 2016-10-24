@@ -20,7 +20,13 @@ class DefaultController extends Controller
          ->getRepository('AppBundle:Carrusel')
          ->findAll();
 
-        return $this->render('BootstrapBundle:Default:index.html.twig', array('text1' =>$texts[0]->getText(),
-            'text2' =>$texts[1]->getText(),'text3' =>$texts[2]->getText(),'text4' =>$texts[3]->getText()));
+      foreach($texts as $textK => $textV){
+        $object[] = array('text' =>  $texts[$textK]->getText(), 'file'=> $this->getParameter('app.path.carrusel_images').$texts[$textK]->getImageName());
+      }
+      if(isset($object)){
+        return $this->render('BootstrapBundle:Default:index.html.twig',array('objects'=>$object));
+      }else {
+        return;
+      }
     }
 }

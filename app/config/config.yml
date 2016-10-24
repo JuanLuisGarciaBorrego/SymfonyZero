@@ -83,8 +83,31 @@ fos_user:
 
 easy_admin:
     entities:
-        - AppBundle\Entity\User
-        - AppBundle\Entity\Carrusel
+        Carrusel:
+            class: AppBundle\Entity\Carrusel
+            list:
+                fields:
+                    [ 'ImageName', 'text', { property: 'image', type: 'image'} ]
+            show:
+                fields:
+                    [ 'ImageName','text', {  property: 'image', type: 'image'} ]
+            form:
+                fields:
+                    [ 'ImageName','text', { property: 'imageFile', type: 'file' } ]
+
+        User:
+            class: AppBundle\Entity\User
+
+#
+#vich_uploader:
+
+
+vich_uploader:
+    db_driver: orm
+    mappings:
+        carrusel_images:
+            uri_prefix:        %app.path.carrusel_images%
+            upload_destination: %kernel.root_dir%/../web/bundles/bootstrap/img/
 
 knp_paginator:
     page_range: 5                      # default page range used in pagination control
