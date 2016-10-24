@@ -49,7 +49,7 @@ class DeployCommand extends ContainerAwareCommand
       $process = new Process($command);
       $process->run();
 
-      // executes after the command finishes
+      // After the command finishes
       if (!$process->isSuccessful()) {
           throw new ProcessFailedException($process);
       }
