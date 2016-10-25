@@ -2,9 +2,9 @@
 {% block stylesheets %}
     {{parent()}}
     {% stylesheets
-    'bundles/bootstrap/css/selvira.customview.css'
+    'bundles/bootstrap/css/carrouselBundle.css'
     'bundles/bootstrap/css/bootstrap.css'
-    'bundles/bootstrap/css/bootstrap-responsive.css'
+    'bundles/bootstrap/css/bootstrap-theme.css'
     filter='cssrewrite' debug=false  output='css/app.css'%}
     <link href="{{ asset_url }}" rel="stylesheet" type="text/css" />
     {% endstylesheets %}
@@ -16,8 +16,8 @@
 {% block javascripts %}
     {{parent()}}
     {% javascripts
-    'bundles/bootstrap/js/jquery-3.1.1.min.js'
-    'bundles/bootstrap/Resources/public/js/bootstrap.min.js'
+    'bundles/bootstrap/js/jquery-3.1.1.js'
+    'bundles/bootstrap/js/bootstrap.min.js'
     output="js/myscript.js" debug=false %}
     <script src="{{ asset_url }}"></script>
 {% endjavascripts %}
