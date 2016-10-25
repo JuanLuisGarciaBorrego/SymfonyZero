@@ -139,4 +139,12 @@ class DefaultController extends Controller
         
         return $render;
     }
+
+    /**
+     * @Route("/cookiepolicy", name="cookie-policy")
+     */
+    public function cookiepolicyAction()
+    {
+        return $this->render('AppBundle:Default:cookiepolicy.html.twig',array("cookieExpiryTime"=> 1));
+    }
 }

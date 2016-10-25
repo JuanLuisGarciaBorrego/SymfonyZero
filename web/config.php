@@ -28,8 +28,6 @@ $symfonyRequirements = new SymfonyRequirements();
 
 $majorProblems = $symfonyRequirements->getFailedRequirements();
 $minorProblems = $symfonyRequirements->getFailedRecommendations();
-$hasMajorProblems = (bool) count($majorProblems);
-$hasMinorProblems = (bool) count($minorProblems);
 
 ?>
 <!DOCTYPE html>
@@ -160,7 +158,7 @@ $hasMinorProblems = (bool) count($minorProblems);
                             ready to run Symfony applications.
                         </p>
 
-                        <?php if ($hasMajorProblems): ?>
+                        <?php if (count($majorProblems)): ?>
                             <h2 class="ko">Major problems</h2>
                             <p>Major problems have been detected and <strong>must</strong> be fixed before continuing:</p>
                             <ol>
@@ -172,10 +170,10 @@ $hasMinorProblems = (bool) count($minorProblems);
                             </ol>
                         <?php endif; ?>
 
-                        <?php if ($hasMinorProblems): ?>
+                        <?php if (count($minorProblems)): ?>
                             <h2>Recommendations</h2>
                             <p>
-                                <?php if ($hasMajorProblems): ?>Additionally, to<?php else: ?>To<?php endif; ?> enhance your Symfony experience,
+                                <?php if (count($majorProblems)): ?>Additionally, to<?php else: ?>To<?php endif; ?> enhance your Symfony experience,
                                 it’s recommended that you fix the following:
                             </p>
                             <ol>
@@ -197,12 +195,12 @@ $hasMinorProblems = (bool) count($minorProblems);
                             </p>
                         <?php endif; ?>
 
-                        <?php if (!$hasMajorProblems && !$hasMinorProblems): ?>
+                        <?php if (!count($majorProblems) && !count($minorProblems)): ?>
                             <p class="ok">All checks passed successfully. Your system is ready to run Symfony applications.</p>
                         <?php endif; ?>
 
                         <ul class="symfony-install-continue">
-                            <?php if ($hasMajorProblems || $hasMinorProblems): ?>
+                            <?php if (count($majorProblems) || count($minorProblems)): ?>
                                 <li><a href="config.php">Re-check configuration</a></li>
                             <?php endif; ?>
                         </ul>
