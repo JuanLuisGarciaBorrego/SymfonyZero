@@ -1,6 +1,6 @@
 <?php
 
-namespace BootstrapBundle\Tests\Controller;
+namespace CarouselBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

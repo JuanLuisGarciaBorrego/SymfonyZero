@@ -30,7 +30,7 @@ class AppKernel extends Kernel
             //new MZ\MailChimpBundle\MZMailChimpBundle(),
             new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
-            new BootstrapBundle\BootstrapBundle(),
+            new CarouselBundle\CarouselBundle(),
             new Vich\UploaderBundle\VichUploaderBundle(),
         ];
 

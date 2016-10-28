@@ -2,9 +2,9 @@
 {% block stylesheets %}
     {{parent()}}
     {% stylesheets
-    'bundles/bootstrap/css/carrouselBundle.css'
-    'bundles/bootstrap/css/bootstrap.css'
-    'bundles/bootstrap/css/bootstrap-theme.css'
+    'bundles/carousel/css/carouselBundle.css'
+    'bundles/carousel/css/bootstrap.css'
+    'bundles/carousel/css/bootstrap-theme.css'
     filter='cssrewrite' debug=false  output='css/app.css'%}
     <link href="{{ asset_url }}" rel="stylesheet" type="text/css" />
     {% endstylesheets %}
@@ -16,8 +16,8 @@
 {% block javascripts %}
     {{parent()}}
     {% javascripts
-    'bundles/bootstrap/js/jquery-3.1.1.js'
-    'bundles/bootstrap/js/bootstrap.min.js'
+    'bundles/carousel/js/jquery-3.1.1.js'
+    'bundles/carousel/js/bootstrap.min.js'
     output="js/myscript.js" debug=false %}
     <script src="{{ asset_url }}"></script>
 {% endjavascripts %}

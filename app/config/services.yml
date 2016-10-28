@@ -4,8 +4,8 @@ imports:
     - { resource: "@AppBundle/Resources/config/services.yml" }
 
 parameters:
-    parsermarkdown.urlReadme: https://raw.githubusercontent.com/Emergya/SymfonyZero/master/README.md
-    app.path.carrusel_images: /bundles/bootstrap/img/
+    parsermarkdown.urlreadme: https://raw.githubusercontent.com/Emergya/SymfonyZero/master/README.md
+    app.path.carousel_images: /bundles/carousel/img/
 
 services:
     fos_user.doctrine_registry:

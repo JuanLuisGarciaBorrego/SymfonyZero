@@ -1,0 +1,9 @@
+parameters:
+    symfonyzero.carousel.repository.class: CarouselBundle\Repository\CarouselRepository
+
+services:
+    symfonyzero.carousel.repository:
+        class: "%symfonyzero.carousel.repository.class%"
+        public: true
+        factory: ["@doctrine.orm.entity_manager", getRepository]
+        arguments: [ CarouselBundle\Entity\Carousel ]

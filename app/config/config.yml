@@ -83,8 +83,8 @@ fos_user:
 
 easy_admin:
     entities:
-        Carrusel:
-            class: AppBundle\Entity\Carrusel
+        Carousel:
+            class: CarouselBundle\Entity\Carousel
             list:
                 fields:
                     [ 'ImageName', 'text', { property: 'image', type: 'image'} ]
@@ -105,9 +105,9 @@ easy_admin:
 vich_uploader:
     db_driver: orm
     mappings:
-        carrusel_images:
-            uri_prefix:        %app.path.carrusel_images%
-            upload_destination: %kernel.root_dir%/../web/bundles/bootstrap/img/
+        carousel_images:
+            uri_prefix:        %app.path.carousel_images%
+            upload_destination: %kernel.root_dir%/../web/bundles/carousel/img/
 
 knp_paginator:
     page_range: 5                      # default page range used in pagination control
@@ -154,7 +154,7 @@ sonata_seo:
     encoding:         UTF-8
     page:
         default: sonata.seo.page.default
-        title:            Symfony Zero.
+        title:            Symfony Zero
         default:          sonata.seo.page.default
         metas:
             name:
@@ -250,7 +250,7 @@ hwi_oauth:
 assetic:
     debug:          '%kernel.debug%'
     use_controller: '%kernel.debug%'
-    bundles:        ['BootstrapBundle']
+    bundles:        ['CarouselBundle']
     filters:
         cssrewrite: ~
         scssphp:

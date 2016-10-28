@@ -1,0 +1,5 @@
+imports:
+    - { resource: repositories.yml }
+    - { resource: managers.yml }
+
+services:

@@ -1,4 +1,4 @@
-{%  extends  'BootstrapBundle::layout.html.twig' %}
+{%  extends  'CarouselBundle::layout.html.twig' %}
 
 {% block body -%}
 
@@ -26,12 +26,12 @@
                     {% for object in objects  %}
                         {% if loop.index == 1 %}
                         <div class="item active">
-                        <img src="{{ object.file }}" alt="{{ loop.index }}" width="460" height="345">
+                        <img src="{{ path ~ object.imageName }}" alt="{{ loop.index }}" width="460" height="345">
                             <span class="Text">{{ object.text }}</span>
                         </div>
                         {% else %}
                             <div class="item">
-                                <img src=" {{ object.file }}" alt="{{  loop.index }}" width="460" height="345">
+                                <img src=" {{ path ~ object.imageName }}" alt="{{  loop.index }}" width="460" height="345">
                                 <span class="Text">{{ object.text }}</span>
                             </div>
                         {% endif %}

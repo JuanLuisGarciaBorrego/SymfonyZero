@@ -1,0 +1,7 @@
+parameters:
+    symfonyzero.carousel.manager.class: CarouselBundle\Manager\CarouselManager
+
+services:
+    symfonyzero.carousel.manager:
+        class: "%symfonyzero.carousel.manager.class%"
+        arguments: ["@symfonyzero.carousel.repository" ]
