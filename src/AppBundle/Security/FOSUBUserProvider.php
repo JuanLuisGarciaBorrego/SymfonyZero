@@ -92,7 +92,7 @@ class FOSUBUserProvider implements UserProviderInterface, AccountConnectorInterf
     	$user = $this->userManager->findUserBy(array($this->getProperty($response) => $socialID));
     	
     	$username = $response->getNickname() ?: $response->getRealName();
-        $name = $response->getRealName();
+        //$name = $response->getRealName();
 
         if (empty($email)) {
           $email = $socialID.'@mailinator.com';
@@ -114,7 +114,7 @@ class FOSUBUserProvider implements UserProviderInterface, AccountConnectorInterf
     			$user->setEmail($email);
     			$user->setPassword('');
     			$user->setEnabled(true);
-                $user->setName($name);
+                //$user->setName($name);
                 $serviceName = $response->getResourceOwner()->getName();
                 switch ($serviceName) {
                   case 'google':

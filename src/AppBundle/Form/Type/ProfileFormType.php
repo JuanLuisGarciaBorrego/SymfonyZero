@@ -86,11 +86,11 @@ class ProfileFormType extends AbstractType
               'class' => 'form-control'
             )))
 
-            ->add('name', null, array('label' => 'Name', 'translation_domain' => 'FOSUserBundle',
+           /* ->add('name', null, array('label' => 'Name', 'translation_domain' => 'FOSUserBundle',
 
             'attr' => array(
               'class' => 'form-control'
-            )))
+            )))*/
 
             ->add('email', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\EmailType'), array('label' => 'Email Address',
             'attr' => array(

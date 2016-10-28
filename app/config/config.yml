@@ -10,7 +10,7 @@ parameters:
 
 framework:
     #esi:             ~
-    #translator:      { fallbacks: ["%locale%"] }
+    translator:      { fallbacks: ["%locale%"] }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -63,9 +63,9 @@ doctrine:
 
 # Swiftmailer Configuration
 swiftmailer:
-    transport: "%mailer_transport%"
-    host:      "%mailer_host%"
-    username:  "%mailer_user%"
+    transport: gmail
+    host:      smtp.gmail.com
+    username:  "%mailer_username%"
     password:  "%mailer_password%"
     spool:     { type: memory }
 
@@ -76,9 +76,18 @@ fos_user:
     registration:
         form:
             type: user_registration
+        confirmation:
+            enabled: "%enable_registration_confirmation%" # change to true for required email confirmation
+            template: FOSUserBundle:Registration:email.txt.twig
+    resetting:
+        email:
+            template: FOSUserBundle:Registration:email.txt.twig
     profile:
         form:
             type: user_profile
+    from_email:
+        address: "%address_from_email%"
+        sender_name: "%sender_mail%"
 
 easy_admin:
     entities:
@@ -190,26 +199,26 @@ hwi_oauth:
     resource_owners:
         google:
             type: google
-            client_id: %client_id_google%
-            client_secret: %client_secret_google%
+            client_id: 391171632826-fe28t6v9ep5egijpaofbn075d5uhbom9.apps.googleusercontent.com
+            client_secret: MHr5h1cEUSngUBsavhiLqDqs
             scope: "profile email"
 
-        facebook:
-            type: facebook
-            client_id: %client_id_facebook%
-            client_secret: %client_secret_facebook%
-            scope: "email, public_profile"
-            infos_url: "https://graph.facebook.com/me?fields=id,name,email,picture.type(large)"
-            paths:
-              email: email
-            options:
-              display: page
-        twitter:
-          type: twitter
-          client_id: %client_id_twitter%
-          client_secret: %client_secret_twitter%
-          paths:
-            profilepicture: "profile_image_url"
+#        facebook:
+#            type: facebook
+#            client_id: %client_id_facebook%
+#            client_secret: %client_secret_facebook%
+#            scope: "email, public_profile"
+#            infos_url: "https://graph.facebook.com/me?fields=id,name,email,picture.type(large)"
+#            paths:
+#              email: email
+#            options:
+#              display: page
+#        twitter:
+#          type: twitter
+#          client_id: %client_id_twitter%
+#          client_secret: %client_secret_twitter%
+#          paths:
+#            profilepicture: "profile_image_url"
 
     fosub:
         # try 30 times to check if a username is available (foo, foo1, foo2 etc)
