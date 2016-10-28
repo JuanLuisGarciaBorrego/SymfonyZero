@@ -87,10 +87,11 @@ easy_admin:
             class: CarouselBundle\Entity\Carousel
             list:
                 fields:
-                    [ 'ImageName', 'text', { property: 'image', type: 'image'} ]
+                    [ 'text', { property: 'ImageName', label: 'Image', type: 'image', base_path: '%app.path.carousel_images%' } ]
+
             show:
                 fields:
-                    [ 'ImageName', 'text', {  property: 'image', type: 'image'} ]
+                    [ 'text', { property: 'ImageName', label: 'Image', type: 'image', base_path: '%app.path.carousel_images%' } ]
             form:
                 fields:
                     [ { property: 'ImageName', type: 'text' }, 'text', { property: 'imageFile', type: 'file' } ]
