@@ -23,6 +23,8 @@ class Carousel
 
     /**
      * @ORM\Column(type="string", length=255)
+     *
+     * @var string
      */
     protected $text;
 

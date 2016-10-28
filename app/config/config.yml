@@ -90,24 +90,20 @@ easy_admin:
                     [ 'ImageName', 'text', { property: 'image', type: 'image'} ]
             show:
                 fields:
-                    [ 'ImageName','text', {  property: 'image', type: 'image'} ]
+                    [ 'ImageName', 'text', {  property: 'image', type: 'image'} ]
             form:
                 fields:
-                    [ 'ImageName','text', { property: 'imageFile', type: 'file' } ]
-
+                    [ { property: 'ImageName', type: 'text' }, 'text', { property: 'imageFile', type: 'file' } ]
         User:
             class: AppBundle\Entity\User
 
-#
 #vich_uploader:
-
-
 vich_uploader:
     db_driver: orm
     mappings:
         carousel_images:
-            uri_prefix:        %app.path.carousel_images%
-            upload_destination: %kernel.root_dir%/../web/bundles/carousel/img/
+            uri_prefix:        "%app.path.carousel_images%"
+            upload_destination: "%kernel.root_dir%/../web/bundles/carousel/img/"
 
 knp_paginator:
     page_range: 5                      # default page range used in pagination control
@@ -126,7 +122,7 @@ stfalcon_tinymce:
         include_jquery: true
         tinymce_jquery: true
         selector: ".tinymce"
-        language: %locale%
+        language: "%locale%"
         theme:
             # Simple theme: same as default theme
             simple: ~
@@ -216,14 +212,14 @@ hwi_oauth:
     resource_owners:
         google:
             type: google
-            client_id: %client_id_google%
-            client_secret: %client_secret_google%
+            client_id: "%client_id_google%"
+            client_secret: "%client_secret_google%"
             scope: "profile email"
 
         facebook:
             type: facebook
-            client_id: %client_id_facebook%
-            client_secret: %client_secret_facebook%
+            client_id: "%client_id_facebook%"
+            client_secret: "%client_secret_facebook%"
             scope: "email, public_profile"
             infos_url: "https://graph.facebook.com/me?fields=id,name,email,picture.type(large)"
             paths:
@@ -232,8 +228,8 @@ hwi_oauth:
               display: page
         twitter:
           type: twitter
-          client_id: %client_id_twitter%
-          client_secret: %client_secret_twitter%
+          client_id: "%client_id_twitter%"
+          client_secret: "%client_secret_twitter%"
           paths:
             profilepicture: "profile_image_url"
 
