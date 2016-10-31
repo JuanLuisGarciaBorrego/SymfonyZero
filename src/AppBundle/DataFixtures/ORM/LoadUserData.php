@@ -2,6 +2,7 @@
 
 namespace AppBundle\DataFixtures\ORM;
 
+use CarouselBundle\Entity\Carousel;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -49,6 +50,20 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
 
         $userManager->updateUser($admin);
         $userManager->updateUser($user);
+
+        if(array_key_exists('CarouselBundle', $this->container->getParameter('kernel.bundles'))) {
+            $carouselManager = $this->container->get('symfonyzero.carousel.manager');
+
+            $carouselArray = [];
+            for($i = 1; $i <= 3; $i++) {
+                $carousel = $carouselManager->createCarousel();
+                $carousel->setText('Text imagen #' . $i);
+                $carousel->setImageName('Symfony' . $i . '.png');
+                $carouselArray[] = $carousel;
+            }
+
+            $carouselManager->createEntities($carouselArray);
+        }
     }
 
     /**
