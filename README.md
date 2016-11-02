@@ -113,12 +113,6 @@ If you change the model, remember you have to do this:
 $ php bin/console doctrine:schema:update --force
 ```
 
-To install the assets you need to run this command (for prod environment):
-
-```sh
-$ php bin/console assetic:dump --env=prod --no-debug
-```
-
 To run the application you have to configure your web server correctly. You can see how to configure it in the [official guide](http://symfony.com/doc/current/cookbook/configuration/web_server_configuration.html). When you have your server running and configured, you can check the installation in your browser:
 ```
 http://localhost:8000/config.php

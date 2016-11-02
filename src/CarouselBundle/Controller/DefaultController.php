@@ -9,7 +9,7 @@ use AppBundle\Entity\Carousel;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/carousel")
+     * @Route("/carousel", name="carousel")
      */
     public function indexAction()
     {

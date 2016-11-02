@@ -1,0 +1,306 @@
+.navbar {
+    background-color: black;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    border-radius: 0;
+    margin-bottom: 0;
+    border: none
+}
+.navbar .navbar-brand {
+    height: 75px;
+    font-size: 22px;
+    line-height: 45px;
+    font-weight: bold;
+    color: white
+}
+.navbar .navbar-brand:hover {
+    color: white
+}
+.navbar .navbar-brand .navbar-brand-zero {
+    color: #337ab7
+}
+.navbar .navbar-nav li.active a,
+.navbar .navbar-nav li.active a:hover {
+    background-color: #337ab7;
+    color: white
+}
+.navbar .navbar-nav li a {
+    padding-top: 30px;
+    padding-bottom: 25px;
+    color: white
+}
+.navbar .navbar-nav li a:hover {
+    color: #337ab7
+}
+.navbar .navbar-nav li a.navbar-button {
+    padding-top: 20px;
+    padding-bottom: 12px;
+    padding-right: 0px;
+    padding-left: 10px
+}
+.navbar .navbar-nav li a.navbar-button button {
+    padding: 10px 20px
+}
+.jumbotron .container {
+    max-width: 990px
+}
+@media (min-width: 768px) {
+    .jumbotron .container {
+        padding-top: 100px;
+        padding-bottom: 100px
+    }
+}
+.jumbotron .container h1 {
+    margin-bottom: 40px
+}
+.jumbotron .container p {
+    margin-bottom: 0px;
+    font-size: 26px
+}
+.jumbotron .container .btn {
+    margin-top: 40px
+}
+.centered_div {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    padding: 20px
+}
+.login-container,
+.register-container,
+.profile-container,
+.edit-profile-container {
+    margin-top: 50px
+}
+.login-container h3,
+.register-container h3,
+.profile-container h3,
+.edit-profile-container h3 {
+    margin-bottom: 5px
+}
+.login-container .form-signin-subheading,
+.register-container .form-signin-subheading,
+.profile-container .form-signin-subheading,
+.edit-profile-container .form-signin-subheading {
+    font-size: 10px;
+    margin-bottom: 20px
+}
+.login-container .form-control,
+.register-container .form-control,
+.profile-container .form-control,
+.edit-profile-container .form-control {
+    margin-bottom: 20px
+}
+.login-container .under-form-buttons,
+.register-container .under-form-buttons,
+.profile-container .under-form-buttons,
+.edit-profile-container .under-form-buttons {
+    margin-top: 50px
+}
+.confirmed-container {
+    margin-top: 50px;
+    text-align: center
+}
+.confirmed-container .confirmed-icon {
+    font-size: 80px;
+    line-height: 0.8;
+    color: #5cb85c
+}
+.confirmed-container h3 {
+    margin-bottom: 10px;
+    font-size: 30px
+}
+.confirmed-container .form-signin-subheading {
+    font-size: 16px;
+    margin-bottom: 20px
+}
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #f8f8f8;
+    padding: 20px 0
+}
+.footer-img {
+    width: 80px
+}
+.readme_block {
+    display: block;
+    width: 70%;
+    margin: 0 auto
+}
+.container {
+    max-width: 990px
+}
+.btn {
+    border-radius: 2px
+}
+html {
+    position: relative;
+    min-height: 100%
+}
+body {
+    margin-bottom: 60px;
+    background-color: #eee
+}
+.navbar {
+    background-color: black;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    border-radius: 0;
+    margin-bottom: 0;
+    border: none
+}
+.navbar .navbar-brand {
+    height: 75px;
+    font-size: 22px;
+    line-height: 45px;
+    font-weight: bold;
+    color: white
+}
+.navbar .navbar-brand:hover {
+    color: white
+}
+.navbar .navbar-brand .navbar-brand-zero {
+    color: #337ab7
+}
+.navbar .navbar-nav li.active a,
+.navbar .navbar-nav li.active a:hover {
+    background-color: #337ab7;
+    color: white
+}
+.navbar .navbar-nav li a {
+    padding-top: 30px;
+    padding-bottom: 25px;
+    color: white
+}
+.navbar .navbar-nav li a:hover {
+    color: #337ab7
+}
+.navbar .navbar-nav li a.navbar-button {
+    padding-top: 20px;
+    padding-bottom: 12px;
+    padding-right: 0px;
+    padding-left: 10px
+}
+.navbar .navbar-nav li a.navbar-button button {
+    padding: 10px 20px
+}
+.jumbotron .container {
+    max-width: 990px
+}
+@media (min-width: 768px) {
+    .jumbotron .container {
+        padding-top: 100px;
+        padding-bottom: 100px
+    }
+}
+.jumbotron .container h1 {
+    margin-bottom: 40px
+}
+.jumbotron .container p {
+    margin-bottom: 0px;
+    font-size: 26px
+}
+.jumbotron .container .btn {
+    margin-top: 40px
+}
+.centered_div {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    padding: 20px
+}
+.login-container,
+.register-container,
+.profile-container,
+.edit-profile-container {
+    margin-top: 50px
+}
+.login-container h3,
+.register-container h3,
+.profile-container h3,
+.edit-profile-container h3 {
+    margin-bottom: 5px
+}
+.login-container .form-signin-subheading,
+.register-container .form-signin-subheading,
+.profile-container .form-signin-subheading,
+.edit-profile-container .form-signin-subheading {
+    font-size: 10px;
+    margin-bottom: 20px
+}
+.login-container .form-control,
+.register-container .form-control,
+.profile-container .form-control,
+.edit-profile-container .form-control {
+    margin-bottom: 20px
+}
+.login-container .under-form-buttons,
+.register-container .under-form-buttons,
+.profile-container .under-form-buttons,
+.edit-profile-container .under-form-buttons {
+    margin-top: 50px
+}
+.confirmed-container {
+    margin-top: 50px;
+    text-align: center
+}
+.confirmed-container .confirmed-icon {
+    font-size: 80px;
+    line-height: 0.8;
+    color: #5cb85c
+}
+.confirmed-container h3 {
+    margin-bottom: 10px;
+    font-size: 30px
+}
+.confirmed-container .form-signin-subheading {
+    font-size: 16px;
+    margin-bottom: 20px
+}
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #f8f8f8;
+    padding: 20px 0
+}
+.footer-img {
+    width: 80px
+}
+.readme_block {
+    display: block;
+    width: 70%;
+    margin: 0 auto
+}
+#cookie-law-info-bar {
+    width: 100%;
+    background: black;
+    opacity: 0.86;
+    position: fixed;
+    bottom: 35px;
+    left: 0
+}
+.btn-pc {
+    padding: 4px 16px
+}
+.cookie-box {
+    text-align: center;
+    padding: 10px;
+    color: whitesmoke
+}
+.container {
+    max-width: 990px
+}
+.btn {
+    border-radius: 2px
+}
+html {
+    position: relative;
+    min-height: 100%
+}
+body {
+    margin-bottom: 60px;
+    background-color: #eee
+}

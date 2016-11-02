@@ -235,20 +235,12 @@ hwi_oauth:
             profilepicture: "profile_image_url"
 
     fosub:
-#         try 30 times to check if a username is available (foo, foo1, foo2 etc)
+#       try 30 times to check if a username is available (foo, foo1, foo2 etc)
         username_iterations: 30
 
-#         mapping between resource owners (see below) and properties
+#       mapping between resource owners (see below) and properties
         properties:
             google: google_id
             facebook: facebook_id
             twitter: twitter_id
 
-assetic:
-    debug:          '%kernel.debug%'
-    use_controller: '%kernel.debug%'
-    bundles:        ['CarouselBundle']
-    filters:
-        cssrewrite: ~
-        scssphp:
-            formatter: 'Leafo\ScssPhp\Formatter\Compressed'

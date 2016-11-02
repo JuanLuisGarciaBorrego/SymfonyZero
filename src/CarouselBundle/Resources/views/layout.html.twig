@@ -1,24 +1,8 @@
 {% extends 'base.html.twig' %}
 {% block stylesheets %}
     {{parent()}}
-    {% stylesheets
-    'bundles/carousel/css/carouselBundle.css'
-    'bundles/carousel/css/bootstrap.css'
-    'bundles/carousel/css/bootstrap-theme.css'
-    filter='cssrewrite' debug=false  output='css/app.css'%}
-    <link href="{{ asset_url }}" rel="stylesheet" type="text/css" />
-    {% endstylesheets %}
+    <link href="{{ asset('css/carousel.css') }}" type="text/css" rel="stylesheet" />
 {% endblock %}
 
 {% block body -%}
-{% endblock %}
-
-{% block javascripts %}
-    {{parent()}}
-    {% javascripts
-    'bundles/carousel/js/jquery-3.1.1.js'
-    'bundles/carousel/js/bootstrap.min.js'
-    output="js/myscript.js" debug=false %}
-    <script src="{{ asset_url }}"></script>
-{% endjavascripts %}
 {% endblock %}

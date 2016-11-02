@@ -35,8 +35,6 @@ class DeployCommand extends ContainerAwareCommand
 
         $this->runCommand('doctrine:schema:update --force');
 
-        $this->runCommand('assetic:dump --env=prod --no-debug');
-
         $this->runCommand('cache:clear');
         $this->runCommand('cache:clear --env=prod');
         $this->runProccess('sudo chmod -R 777 '. $cachePath);
