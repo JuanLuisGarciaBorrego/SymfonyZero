@@ -94,7 +94,7 @@ easy_admin:
                     [ 'text', { property: 'ImageName', label: 'Image', type: 'image', base_path: '%app.path.carousel_images%' } ]
             form:
                 fields:
-                    [ { property: 'ImageName', type: 'text' }, 'text', { property: 'imageFile', type: 'file' } ]
+                    [ { property: 'ImageName', type: 'text', type_options: { read_only: true} }, 'text', { property: 'imageFile', type: 'vich_image' } ]
         User:
             class: AppBundle\Entity\User
 
@@ -104,7 +104,7 @@ vich_uploader:
     mappings:
         carousel_images:
             uri_prefix:        "%app.path.carousel_images%"
-            upload_destination: "%kernel.root_dir%/../web/bundles/carousel/img/"
+            upload_destination: "%kernel.root_dir%/../web/images/carousel/"
 
 knp_paginator:
     page_range: 5                      # default page range used in pagination control

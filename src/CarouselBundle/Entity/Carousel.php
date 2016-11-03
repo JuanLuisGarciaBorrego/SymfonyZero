@@ -29,10 +29,7 @@ class Carousel
     protected $text;
 
     /**
-    * NOTE: This is not a mapped field of entity metadata, just a simple property.
-    *
     * @Vich\UploadableField(mapping="carousel_images", fileNameProperty="imageName")
-    *
     * @var File
     */
     private $imageFile;
@@ -44,10 +41,20 @@ class Carousel
     */
     private $imageName;
 
+    /**
+     * @ORM\Column(type="datetime")
+     * @var \DateTime
+     */
+    private $updatedAt;
+
 
     public function setImageFile(File $image = null)
     {
         $this->imageFile = $image;
+
+        if ($image) {
+            $this->updatedAt = new \DateTime('now');
+        }
     }
 
     public function getImageFile()
