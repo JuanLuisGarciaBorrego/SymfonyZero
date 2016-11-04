@@ -59,6 +59,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
                 $carousel = $carouselManager->createCarousel();
                 $carousel->setText('Text imagen #' . $i);
                 $carousel->setImageName('Symfony' . $i . '.png');
+                $carousel->setUpdateAt(new \DateTime("now", new \DateTimeZone('UTC')));
                 $carouselArray[] = $carousel;
             }
 
