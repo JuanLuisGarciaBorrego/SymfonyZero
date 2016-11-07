@@ -26,6 +26,7 @@ fi
 # PHP and Curl
 CURRENT_PHP_VERSION=$(php -v|grep --only-matching --perl-regexp "[5-7]+[.]\d+[.]\d+" | awk '{print $1; exit}');
 PHP_VERSION='5.6'
+CURRENT_USER=$(echo $SUDO_USER)
 
 function version { echo "$@" | gawk -F. '{ printf("%03d%03d%03d\n", $1,$2,$3); }'; }
 
@@ -70,6 +71,7 @@ cd $SYMFONYPATH
 
 printf "${GREEN}Install/Updating vendors:${NC} "
 composer $COMPOSER_ACTION
+sudo chown -R $CURRENT_USER:$CURRENT_USER $SYMFONYPATH
 
 php bin/console doctrine:database:create
 php bin/console doctrine:schema:update --force
