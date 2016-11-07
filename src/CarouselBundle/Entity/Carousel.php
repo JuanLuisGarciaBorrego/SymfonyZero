@@ -22,7 +22,7 @@ class Carousel
     protected $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", name="text", length=255)
      *
      * @var string
      */
@@ -35,14 +35,14 @@ class Carousel
     private $imageFile;
 
     /**
-    * @ORM\Column(type="string", length=255)
+    * @ORM\Column(type="string", name="image_name", length=255)
     *
     * @var string
     */
     private $imageName;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", name="updated_at")
      * @var \DateTime
      */
     private $updatedAt;
@@ -120,25 +120,25 @@ class Carousel
     }
 
     /**
-     * Set updateAt
+     * Set updatedAt
      *
-     * @param \DateTime $updateAt
+     * @param \DateTime $updatedAt
      * @return Carousel
      */
-    public function setUpdateAt($updateAt)
+    public function setUpdatedAt($updatedAt)
     {
-        $this->updateAt = $updateAt;
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
 
     /**
-     * Get updateAt
+     * Get updatedAt
      *
      * @return \DateTime
      */
-    public function getUpdateAt()
+    public function getUpdatedAt()
     {
-        return $this->updateAt;
+        return $this->updatedAt;
     }
 }
