@@ -31,8 +31,6 @@ class DeployCommand extends ContainerAwareCommand
         $logsPath = $this->getContainer()->get('kernel')->getRootdir().'/../var/logs/*';
         $this->output = $output;
 
-        $this->runProccess('composer install');
-
         $this->runCommand('doctrine:schema:update --force');
 
         $this->runCommand('cache:clear');

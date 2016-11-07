@@ -140,7 +140,15 @@ follow the instructions you will find in it, you only have to comment one line a
 
 # How to update
 
-If you update your repository with a new version of SymfonyZero of with your new changes, you don't need to do again all the commands includes in the previous section. To do it quicker we provides a console command which execute the needed commands for you. To run it:
+If you update your repository with a new version of SymfonyZero of with your new changes, you don't need to do again all the commands includes in the previous section. To do it quicker we provides a console command which execute the needed commands for you.
+
+First you have to install new composer dependencies:
+
+```sh
+$ composer install
+```
+
+Then, to run the update command:
 
 ```sh
 $ php bin/console zero:deploy
