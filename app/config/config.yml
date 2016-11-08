@@ -63,9 +63,9 @@ doctrine:
 
 # Swiftmailer Configuration
 swiftmailer:
-    transport: "%mailer_transport%"
-    host:      "%mailer_host%"
-    username:  "%mailer_user%"
+    transport: gmail
+    host:      smtp.gmail.com
+    username:  "%mailer_username%"
     password:  "%mailer_password%"
     spool:     { type: memory }
 
@@ -76,9 +76,18 @@ fos_user:
     registration:
         form:
             type: user_registration
+        confirmation:
+            enabled: "%enable_registration_confirmation%" # change to true for required email confirmation
+            template: FOSUserBundle:Registration:email.txt.twig
+    resetting:
+        email:
+            template: FOSUserBundle:Registration:email.txt.twig
     profile:
         form:
             type: user_profile
+    from_email:
+        address: "%address_from_email%"
+        sender_name: "%sender_mail%"
 
 easy_admin:
     entities:
@@ -226,6 +235,7 @@ hwi_oauth:
               email: email
             options:
               display: page
+
         twitter:
           type: twitter
           client_id: "%client_id_twitter%"

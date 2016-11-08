@@ -18,7 +18,7 @@
       <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
       <label for="username">Email address</label>
-      <input type="text" id="username" name="_username" value="{{ last_username }}" class="form-control" placeholder="Username" required autofocus>
+      <input type="email" id="username" name="_username" value="{{ last_username }}" class="form-control" placeholder="Username" required autofocus>
 
       <label for="password">Password</label>
       <input type="password" id="password" name="_password" class="form-control" placeholder="Password" required>
@@ -29,7 +29,9 @@
         <a class="btn btn-lg btn-warning btn-block" href={{ path('hwi_oauth_service_redirect', {'service': 'google'}) }}>Sign in with Google</a>
         <a class="btn btn-lg btn-primary btn-block" href={{ path('hwi_oauth_service_redirect', {'service': 'facebook'}) }}>Sign in with Facebook</a>
         <a class="btn btn-lg btn-info btn-block" href={{ path('hwi_oauth_service_redirect', {'service': 'twitter'}) }}>Sign in with Twitter</a>
+        <a href="{{ path('fos_user_resetting_request') }}">Forgot password?</a>
       </div>
+
     </form>
   </div>
 </div>

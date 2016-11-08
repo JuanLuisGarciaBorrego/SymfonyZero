@@ -31,7 +31,7 @@ class User extends BaseUser
      *     groups={"Registration", "Profile"}
      * )
      */
-    protected $name;
+    //protected $name;
 
 
     /**
@@ -111,7 +111,7 @@ class User extends BaseUser
     return $this;
   }
 
-    public function getName()
+    /*public function getName()
     {
     	return $this->name;
     }
@@ -120,5 +120,5 @@ class User extends BaseUser
     {
     	$this->name = $name;
     	return $this;
-    }
+    }*/
 }

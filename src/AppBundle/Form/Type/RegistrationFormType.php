@@ -24,12 +24,6 @@ class RegistrationFormType extends BaseType
             'attr' => array(
                 'class' => 'form-control'
             )))
-          ->add('name', null, array(
-            'label' => 'Name',
-            'translation_domain' => 'FOSUserBundle',
-            'attr' => array(
-                'class' => 'form-control'
-            )))
           ->add('plainPassword', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\RepeatedType'), array(
               'type' => LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\PasswordType'),
               'options' => array('translation_domain' => 'FOSUserBundle'),
@@ -43,7 +37,7 @@ class RegistrationFormType extends BaseType
                 'attr' => array(
                     'class' => 'form-control'
                 )),
-              'invalid_message' => 'fos_user.password.mismatch',
+              'invalid_message' => 'Passwords doesn\'t match',
             ));
     }
 
