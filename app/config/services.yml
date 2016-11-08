@@ -6,6 +6,7 @@ imports:
 parameters:
     parsermarkdown.urlreadme: https://raw.githubusercontent.com/Emergya/SymfonyZero/master/README.md
     app.path.carousel_images: /images/carousel/
+    enable_registration_confirmation: false
 
 services:
     fos_user.doctrine_registry:
