@@ -20,9 +20,8 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      *
-     * @Assert\NotBlank(message="Please enter your name.", groups={"Registration", "Profile"})
      * @Assert\Length(
      *     min=5,
      *     max=255,
@@ -31,7 +30,7 @@ class User extends BaseUser
      *     groups={"Registration", "Profile"}
      * )
      */
-    //protected $name;
+    protected $name;
 
 
     /**
@@ -111,14 +110,14 @@ class User extends BaseUser
     return $this;
   }
 
-    /*public function getName()
-    {
-    	return $this->name;
-    }
+  public function getName()
+  {
+  	return $this->name;
+  }
 
-    public function setName($name)
-    {
-    	$this->name = $name;
-    	return $this;
-    }*/
+  public function setName($name)
+  {
+   	$this->name = $name;
+   	return $this;
+  }
 }

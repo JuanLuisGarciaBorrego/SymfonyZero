@@ -17,8 +17,8 @@
       <div class="form-signin-subheading">(sample user: <b>user:user</b>) - (sample admin: <b>admin:admin</b>)</div>
       <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
-      <label for="username">Email address</label>
-      <input type="email" id="username" name="_username" value="{{ last_username }}" class="form-control" placeholder="Username" required autofocus>
+      <label for="username">Username</label>
+      <input type="text" id="username" name="_username" value="{{ last_username }}" class="form-control" placeholder="Username" required autofocus>
 
       <label for="password">Password</label>
       <input type="password" id="password" name="_password" class="form-control" placeholder="Password" required>
