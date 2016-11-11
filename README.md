@@ -179,16 +179,18 @@ SymfonyZero has available a pre-configured third party bundles to give a solutio
 *  [MZMailChimpBundle](https://github.com/miguel250/MZMailChimpBundle) - MZMailChimpBundle is a bundle which integrates MailChimp API with Symfony Apps easily.
 *  [HWIOAuthBundle](https://github.com/hwi/HWIOAuthBundle) - HWIOAuthBundle adds support for authenticating users via OAuth1.0a or OAuth2 in Symfony2 with more of 40 different providers like Facebook, Twitter, Google...
 *  [AsseticBundle](https://github.com/symfony/assetic-bundle) - AsseticBundle provides integration of the Assetic library into the Symfony2 framework.
+*  [VichUploaderBundle](https://github.com/dustin10/VichUploaderBundle) - VichUploaderBundle is a bundle that attempts to ease file uploads that are attached to ORM entities, MongoDB ODM documents, PHPCR ODM documents or Propel models. 
 
 **Common Sections and Functionality**
  
  * Responsive design using Bootstrap
- * Landing page with slider
+ * Landing page
+ * Carousel that you can manage it from admin panel
  * Private section to manage entities
  * Contact form with email service pre-configured
  * Login, register and password change
- * Newsletter form integrated with Mailchimp service
  * About me section
+ * Cookies law bar
  * Terms & Conditions section
  * Demos of different features
  * Header section with company's logo and dynamic menu
