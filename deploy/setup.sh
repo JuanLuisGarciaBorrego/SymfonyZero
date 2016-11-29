@@ -80,6 +80,7 @@ php bin/console cache:clear
 php bin/console cache:clear --env=prod
 sudo chmod -R 777 $SYMFONYPATH/var/cache
 sudo chmod -R 777 $SYMFONYPATH/var/logs
+sudo chmod -R 777 $SYMFONYPATH/www/images
 
 printf "${GREEN}Configuring Apache Virtualhost and restarting:${NC} "
 # Update and enable Apache2 config
